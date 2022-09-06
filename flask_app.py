@@ -3,7 +3,7 @@ import json
 
 PATH_API = "/api/v1/"
 
-test = True
+test = False
 
 path = ''
 
