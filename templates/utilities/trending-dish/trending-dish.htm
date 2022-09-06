@@ -1,0 +1,13 @@
+{% from "utilities/trending-dish/trending-dish-card.htm" import trending_dish_card with context %}
+{% from "utilities/heading-with-show/heading-with-show.htm" import heading_with_show with context %}
+
+<div class="trending-dishes-wrapper">
+    {{ heading_with_show("Trending Dishes",url_for('trending_dishes_all')) }}
+    <div class="row">
+        <div class="col div-horizontal-scrolling">
+            {% for i in range(10) %}
+            {{ trending_dish_card("","Cheese Pizza","Pizza","","Dominos") }}
+            {% endfor %}
+        </div>
+    </div>
+</div>

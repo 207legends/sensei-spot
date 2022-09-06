@@ -1,0 +1,243 @@
+{% extends 'layout/layout-with-sidebar.htm' %}
+{% from "utilities/heading-with-underline/heading-with-underline.htm" import heading_with_underline with context %}
+{% from "utilities/heading-with-toggle/heading-with-toggle.htm" import heading_with_toggle with context %}
+{% from "utilities/modals/confirm/modal.htm" import modal_confirm with context %}
+
+{% block title %}
+Settings
+{% endblock %}
+
+{% block stylesheet %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/settings/style.css') }}">
+{% endblock %}
+
+{% block head_scripts %}
+<script src="{{ url_for('static', filename='javascript/extras/lc_switch.js') }}"></script>
+{% endblock %}
+
+{% block sidebar %}
+<div class="custom-card">
+    <div class="custom-card-body">
+        <ul class="settings-sidemenu">
+            <li>Profile</li>
+            <li>Appearance</li>
+            <li>Password</li>
+            <li>Notifications</li>
+            <hr>
+            <li><button class="btn custom-btn-danger" data-toggle="modal" data-target="#modal-delete-account-confirm"><i
+                        class="bi bi-trash3-fill"></i> DELETE
+                    ACCOUNT</button></li>
+        </ul>
+    </div>
+</div>
+{% endblock %}
+
+{% block sidecontent %}
+<div class="row">
+    <div class="col">
+        <!--Profile-->
+        <div class="row">
+            <div class="col">
+                <div class="custom-card">
+                    <div class="custom-card-body">
+                        {{ heading_with_underline("Profile") }}
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="user-name">Name</label>
+                                    <input type="text" class="form-control" id="user-name" placeholder="Full Name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="user-username">Username</label>
+                                    <input type="text" class="form-control" id="user-username" placeholder="username">
+                                </div>
+                                <div class="form-group">
+                                    <label for="user-email">Email</label>
+                                    <input type="email" class="form-control" id="user-email"
+                                        placeholder="sample@lfc.com">
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label for="user-dob">DOB</label>
+                                            <input type="date" class="form-control" id="user-dob">
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label for="user-pincode">Pincode</label>
+                                            <input type="text" class="form-control" id="user-pincode"
+                                                placeholder="XXXXXX">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <label for="user-country">Country</label>
+                                            <select class="form-control selectpicker" id="user-country"
+                                                data-live-search="true">
+                                                {% for country in countries %}
+                                                <option value="{{country}}">
+                                                    {{country}}
+                                                </option>
+                                                {% endfor %}
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <label for="user-state">State</label>
+                                            <select class="form-control selectpicker" id="user-state"
+                                                data-live-search="true">
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <label for="user-city">City</label>
+                                            <select class="form-control selectpicker" id="user-city"
+                                                data-live-search="true">
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="user-address-1">Address</label>
+                                    <input type="text" class="form-control" id="user-address-1"
+                                        placeholder="Address Line 1">
+                                    <input type="text" class="form-control mt-2" id="user-address-2"
+                                        placeholder="Address Line 2">
+                                    <input type="text" class="form-control mt-2" id="user-address-3"
+                                        placeholder="Address Line 3">
+                                </div>
+                                <div class="form-group">
+                                    <label for="user-address-landmark">Landmark</label>
+                                    <input type="text" class="form-control" id="user-address-landmark"
+                                        placeholder="Near XYZ">
+                                </div>
+                                <div class="form-group">
+                                    <button class="btn custom-btn-primary">SAVE DETAILS</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Appearance-->
+        <div class="row">
+            <div class="col">
+                <div class="custom-card">
+                    <div class="custom-card-body">
+                        {{ heading_with_underline("Appearance") }}
+
+                        {{ heading_with_toggle("Dark Mode","checkbox-theme") }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Passwords-->
+        <div class="row">
+            <div class="col">
+                <div class="custom-card">
+                    <div class="custom-card-body">
+                        {{ heading_with_underline("Password") }}
+
+                        <div class="form-group">
+                            <button class="btn custom-btn-outline">CHANGE PASSWORD</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Notifications-->
+        <div class="row">
+            <div class="col">
+                <div class="custom-card">
+                    <div class="custom-card-body">
+                        {{ heading_with_underline("Notifications") }}
+
+                        {{ heading_with_toggle("Email","checkbox-notification-email") }}
+                        {{ heading_with_toggle("SMS","checkbox-notification-sms") }}
+                        {{ heading_with_toggle("Whatsapp","checkbox-notification-whatsapp") }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content_bottom %}
+
+{{ modal_confirm("Do you really want to leave us?","You will not be able to recover your
+account!!","Yes","No","modal-delete-account-confirm") }}
+
+{% endblock %}
+
+{% block body_scripts %}
+<script>
+
+    lc_switch("input[type=checkbox]");
+
+    $(function () {
+        $("select").select2();
+    });
+
+    document.getElementById("user-country").onchange = () => {
+        let URL = `/api/v1/${document.getElementById("user-country").value}/states`;
+
+        document.getElementById("user-state").innerHTML = ``;
+        document.getElementById("user-city").innerHTML = ``;
+
+        $.get(URL, (data, status) => {
+            document.getElementById("user-state").innerHTML = getOptionList(data.states);
+        });
+    }
+
+    document.getElementById("user-state").onchange = () => {
+        let URL = `/api/v1/${document.getElementById("user-country").value}/${document.getElementById("user-state").value}/cities`;
+        document.getElementById("user-city").innerHTML = ``;
+
+        $.get(URL, (data, status) => {
+            document.getElementById("user-city").innerHTML = getOptionList(data.cities);
+        });
+    }
+
+    function getOptionList(data) {
+        let res = ``;
+
+        data.forEach(e => {
+            res = res + `<option value="${e}">${e}</option>`
+        })
+
+        return res;
+    }
+
+
+
+    let element = document.querySelector("#checkbox-theme");
+
+    let currentTheme = '{{appTheme}}';
+    if (currentTheme == null || currentTheme == "dark") {
+        lcs_on(element);
+    }
+    else {
+        lcs_off(element);
+    }
+
+    element.addEventListener('lcs-statuschange', (e) => {
+        let newThemeValue = document.getElementById("checkbox-theme").checked ? "dark" : "light";
+
+        const d = new Date();
+        d.setTime(d.getTime() + (30 * 24 * 60 * 60 * 1000));
+        let expires = "expires=" + d.toUTCString();
+        document.cookie = "app-theme" + "=" + newThemeValue + ";" + expires + ";path=/";
+
+        localStorage.setItem("current-theme", newThemeValue);
+
+        location.reload();
+    })
+</script>
+{% endblock %}

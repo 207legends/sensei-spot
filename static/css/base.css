@@ -1,0 +1,189 @@
+* {
+    scrollbar-color: var(--color-accent) var(--color-disabled);
+    scrollbar-width: thin;
+}
+
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+::-webkit-scrollbar {
+    width: thin;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: var(--color-disabled);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: var(--color-accent);
+}
+
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+body {
+    padding: 0;
+    padding-top: var(--padding-body);
+    margin: 0;
+    background: var(--color-primary);
+    overflow-x: hidden;
+    color: var(--color-secondary);
+}
+
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+/* a,
+a:visited,
+a:active,
+a:link {
+    color: var(--color-accent);
+    text-decoration: none;
+} */
+
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+.top-announcement-wrapper {
+    padding: 12px;
+    font-weight: 600;
+    background-color: var(--color-alert);
+    color: white;
+}
+
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+.navbar {
+    position: sticky;
+    width: 100%;
+    top: 0;
+    z-index: var(--z-index-navbar);
+    font-weight: 700;
+    color: var(--color-primary);
+    background-color: var(--color-accent);
+    box-shadow: 0 3px 10px 0 var(--color-shadow);
+}
+
+.navbar-brand {
+    color: var(--color-primary);
+}
+
+.nav-link {
+    color: var(--color-primary);
+}
+
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+.footer-wrapper {
+    background-color: var(--color-disabled);
+}
+
+.footer-wrapper .condition-wrapper {
+    font-weight: 600;
+}
+
+.footer-wrapper .copyright-wrapper {
+    font-weight: 600;
+    color: var(--color-primary);
+    padding: var(--padding-large);
+    text-align: center;
+    background-color: var(--color-accent);
+}
+
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+.scroll-to-top-wrapper a {
+    text-decoration: none;
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    font-size: 48px;
+    z-index: var(--z-index-to-top);
+}
+
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+.custom-card {
+    margin-top: var(--padding-extra-large);
+    background-color: var(--color-card);
+    box-shadow: 0 2px 4px 0 var(--color-shadow);
+    border-radius: var(--border-radius);
+    transition: all 0.5s;
+}
+
+.custom-card:hover {
+    box-shadow: 0 3px 9px 0 var(--color-shadow);
+}
+
+.custom-card-body {
+    padding: var(--padding-extra-large);
+}
+
+.custom-card-footer {
+    padding: var(--padding-small) var(--padding-extra-large);
+}
+
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+.custom-btn-primary {
+    background-color: var(--color-accent);
+    color: var(--color-primary);
+    font-weight: 600;
+    width: 100%;
+}
+
+.custom-btn-primary:hover {
+    color: var(--color-primary);
+}
+
+.custom-btn-danger {
+    background-color: var(--color-danger);
+    color: var(--color-primary);
+    font-weight: 600;
+    width: 100%;
+}
+
+.custom-btn-primary:hover {
+    color: var(--color-primary);
+}
+
+.custom-btn-outline {
+    background-color: var(--color-primary);
+    color: var(--color-accent);
+    border: thin solid var(--color-accent);
+    font-weight: 600;
+    width: 100%;
+}
+
+.custom-btn-outline:hover {
+    color: var(--color-accent);
+}
+
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+.div-horizontal-scrolling {
+    overflow-x: auto;
+    white-space: nowrap;
+    overflow-y: hidden;
+    overflow-x: auto;
+    padding-bottom: var(--padding-extra-large);
+}
+
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+.modal-offer-of-day {
+    z-index: var(--z-index-offer-of-day);
+}
+
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+.select2-selection {
+    height: calc(1.5em + .75rem + 2px);
+    padding-top: .375rem .75rem;
+}
+
+
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+.center-align {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}

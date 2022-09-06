@@ -1,0 +1,72 @@
+{% extends 'layout/layout-with-sidebar.htm' %}
+
+{% block title %}
+Careers
+{% endblock %}
+
+{% block content_top %}
+
+{% endblock %}
+
+{% block sidebar %}
+<div class="row">
+    <div class="col">
+        <div class="custom-card">
+            <div class="custom-card-body">
+                <div class="form-group">
+                    <label for="sel1">Type of Role</label>
+                    <select class="form-control" id="select-job-role">
+                        <option>Frontend</option>
+                        <option>Backend</option>
+                        <option>UI UX</option>
+                        <option>Research</option>
+                        <option></option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="sel1">Type of Job</label>
+                    <select class="form-control" id="select-job-type">
+                        <option>Fulltime</option>
+                        <option>Parttime</option>
+                        <option>Internship</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="sel1">Location</label>
+                    <select class="form-control" id="select-job-location">
+                        <option>Delhi</option>
+                        <option>Gurugram</option>
+                        <option>Noida</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block sidecontent %}
+<div class="row">
+    <div class="col">
+        <div class="custom-card">
+            <div class="custom-card-body">
+                Found 404 records
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content_bottom %}
+
+{% endblock %}
+
+{% block body_scripts %}
+<script>
+
+    
+    $(function () {
+        $("select").select2();
+    });
+</script>
+{% endblock %}

@@ -1,0 +1,59 @@
+.trending-dishes-wrapper {
+    margin-top: var(--padding-extra-large);
+    margin-bottom: var(--padding-extra-large);
+}
+
+.dish-wrapper {
+    min-width: 300px;
+    width: 20vw;
+    display: inline-block;
+    margin-right: var(--padding-extra-large);
+}
+
+.dish-wrapper .dish-image {
+    width: 100%;
+    border-radius: 12px 12px 12px 12px;
+}
+
+.dish-wrapper .dish-heading {
+    font-weight: 700;
+    font-size: x-large;
+    color: var(--color-secondary);
+}
+
+.dish-wrapper .dish-category {
+    font-weight: 700;
+    color: var(--color-secondary);
+    font-size: large;
+}
+
+.dish-wrapper .dish-shop {
+    font-weight: 700;
+    color: var(--color-secondary);
+    font-size: small;
+}
+
+.dish-wrapper .dish-rating {
+    color: var(--color-accent);
+}
+
+.dish-wrapper .dish-fav {
+    position: absolute;
+    right: var(--padding-extra-large);
+    top: var(--padding-extra-large);
+    color: var(--color-favourite);
+    font-size: 24px;
+    background: var(--color-primary);
+    border-radius: 50%;
+    padding: var(--padding-medium);
+}
+
+.dish-wrapper .dish-image-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    border-radius: 0px 0px 12px 12px;
+    background: linear-gradient(transparent, black);
+}

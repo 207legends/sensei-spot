@@ -1,0 +1,27 @@
+:root {
+    --color-primary: #121212;
+    --color-secondary: #dfdfdf;
+    --color-accent: #5c85ec;
+    --color-card: #1d1d1d;
+    --color-favourite: rgb(238, 53, 53);
+    --color-success: green;
+    --color-error: red;
+    --color-danger: red;
+    --color-alert: var(--color-accent);
+    --color-shadow: #000;
+    --color-disabled: #d3d3d3;
+
+    --padding-small: 6px;
+    --padding-medium: 12px;
+    --padding-large: 16px;
+    --padding-extra-large: 24px;
+    --padding-body: 0px;
+
+    --border-radius: 16px;
+
+    scroll-behavior: smooth;
+
+    --z-index-navbar: 200;
+    --z-index-to-top: 300;
+    --z-index-offer-of-day: 2000;
+}

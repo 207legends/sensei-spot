@@ -1,0 +1,65 @@
+{% extends 'layout/layout.htm' %}
+
+{% block title %}
+Profile
+{% endblock %}
+
+{% block stylesheet %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/profile/style.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid" style="margin-top: var(--padding-extra-large);">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <table style="margin: auto;">
+                    <tbody>
+                        <tr>
+                            <td rowspan="3">
+                                <img src="{{ url_for('static', filename='images/sample-profile-image.webp') }}"
+                                    class="profile-image">
+                            </td>
+                            <td>
+                                <h2><b>Navdeep Sharma</b></h2>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>India</td>
+                        </tr>
+                        <tr>
+                            <td><a href="{{ url_for('settings') }}" class="btn custom-btn-outline">Edit Profile</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="row" style="margin-top: var(--padding-extra-large);">
+            <div class="col">
+                <ul class="nav nav-tabs" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" data-toggle="tab" href="#home">Info</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#favourites">Favourites</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#orders">Orders</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#reservations">Reservations</a>
+                    </li>
+                </ul>
+
+                <!-- Tab panes -->
+                <div class="tab-content">
+                    {% include 'utilities/profile-tabs/info/info.htm' %}
+                    {% include 'utilities/profile-tabs/favourites/favourites.htm' %}
+                    {% include 'utilities/profile-tabs/orders/orders.htm' %}
+                    {% include 'utilities/profile-tabs/reservations/reservations.htm' %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

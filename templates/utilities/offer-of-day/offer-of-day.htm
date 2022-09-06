@@ -1,0 +1,38 @@
+<div class="modal fade modal-offer-of-day" id="modal-offer-of-day" data-backdrop="static" data-keyboard="false"
+    tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" style="z-index: 600;">
+        <div class="modal-content custom-card">
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <h1>Deal of the DAY</h1>
+                        <div class="row">
+                            <div class="col">
+                                <div id="flipdown" class="flipdown"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    var twoDaysFromNow = (new Date().getTime() / 1000) + (86400 * 1) + 1;
+    var flipdown = new FlipDown(twoDaysFromNow);
+    flipdown.start();
+    flipdown.ifEnded(() => {
+        console.log('The countdown has ended!');
+    });
+    var flipdown = new FlipDown(datetime, el, {
+        theme: 'light' // or dark
+    });
+</script>

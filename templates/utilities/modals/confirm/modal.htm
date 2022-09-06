@@ -1,0 +1,24 @@
+{% macro modal_confirm(confirm_title="",confirm_subtitle="",message_yes="",message_no="",modal_id="") %}
+<div class="modal fade" id="{{modal_id}}" tabindex="-1" aria-labelledby="{{modal_id}}-label" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content custom-card">
+            <div class="modal-body">
+                <div class="custom-card-body">
+                    <div class="row">
+                        <div class="col">
+                            <h3><b>{{confirm_title}}</b></h3>
+                            <h6 style="color: var(--color-accent);"><b>{{confirm_subtitle}}</b></h6>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top: var(--padding-extra-large);">
+                        <div class="col"><button type="button" class="btn custom-btn-outline"
+                                data-dismiss="modal">{{message_no}}</button>
+                        </div>
+                        <div class="col"><a class="btn custom-btn-danger">{{message_yes}}</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endmacro %}

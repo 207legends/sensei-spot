@@ -1,0 +1,33 @@
+.search-container {
+    margin-top: var(--padding-extra-large);
+    padding: var(--padding-extra-large);
+    border-radius: var(--border-radius);
+    background-color: var(--color-shadow);
+}
+
+.custom-search-wrapper {
+    background-color: white;
+    border-radius: 100px;
+    margin: var(--padding-large);
+    padding: var(--padding-large);
+}
+
+
+.custom-search-input {
+    width: 100%;
+    border-radius: 100px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    padding: 0;
+    font-weight: 600;
+}
+
+.custom-search-input:focus {
+    outline: none;
+    border: none;
+}
+
+.custom-search-icon {
+    font-size: large;
+}

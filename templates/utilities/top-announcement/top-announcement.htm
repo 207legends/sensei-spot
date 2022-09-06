@@ -1,0 +1,14 @@
+<div class="container-fluid top-announcement-wrapper" id="top-announcement-container">
+    <div class="row">
+        <div class="col">
+            <div id="top-announcement-text"></div>
+        </div>
+        <div class="col-auto">
+            <i class="bi bi-x-lg" style="cursor: pointer;" onclick="hideTopAnnouncement()"></i>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.getElementById("top-announcement-text").innerHTML = CONSTANTS.LATEST_ANNOUNCEMENT;
+</script>

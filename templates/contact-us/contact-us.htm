@@ -1,0 +1,64 @@
+{% extends 'layout/layout.htm' %}
+{% block title %}
+Contact-Us
+{% endblock %}
+
+{% block stylesheet %}
+<style>
+    .contact-us-wrapper {
+        text-align: center;
+    }
+
+    .contact-us-wrapper>li {
+        list-style: none;
+        font-weight: 700;
+        color: var(--color-accent);
+        font-size: xx-large;
+    }
+
+    @media only screen and (max-width: 600px) {
+        .contact-us-wrapper>li {
+            display: inline-block;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+
+<div class="container-fluid mt-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3">
+                <ul class="contact-us-wrapper">
+                    <li>C</li>
+                    <li><i class="bi bi-mailbox2"></i></li>
+                    <li>N</li>
+                    <li>T</li>
+                    <li>A</li>
+                    <li>C</li>
+                    <li>T</li>
+                    <li>&nbsp;</li>
+                    <li>U</li>
+                    <li>S</li>
+                </ul>
+            </div>
+            <div class="col">
+                <div class="form-group mt-4">
+                    <input type="text" class="form-control" placeholder="Full Name">
+                </div>
+                <div class="form-group">
+                    <input type="email" class="form-control" placeholder="Email">
+                </div>
+                <div class="form-group">
+                    <textarea class="form-control" rows="6" placeholder="Message...."></textarea>
+                </div>
+                <div class="form-group">
+                    <button class="btn custom-btn-primary">SUBMIT</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

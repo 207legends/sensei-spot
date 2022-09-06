@@ -1,0 +1,22 @@
+{% extends 'layout/layout.htm' %}
+
+{% block content %}
+
+{% block content_top %} {% endblock %}
+
+<div class="container-fluid">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3">
+                {% block sidebar %} {% endblock %}
+            </div>
+            <div class="col-sm-9">
+                {% block sidecontent %} {% endblock %}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% block content_bottom %} {% endblock %}
+
+{% endblock %}

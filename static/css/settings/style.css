@@ -1,0 +1,10 @@
+.settings-sidemenu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.settings-sidemenu li {
+    margin-top: var(--padding-medium);
+    margin-bottom: var(--padding-medium);
+}

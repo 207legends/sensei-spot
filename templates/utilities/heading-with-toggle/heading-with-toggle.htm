@@ -1,0 +1,13 @@
+{% macro heading_with_toggle(title="",id="") %}
+
+<div class="row" style="margin-top: var(--padding-medium);">
+    <div class="col">
+        <b>{{title}}</b>
+    </div>
+    <div class="col-auto" style="text-align: right;">
+        <input type="checkbox" id="{{id}}">
+    </div>
+</div>
+
+
+{% endmacro %}

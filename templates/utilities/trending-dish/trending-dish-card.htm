@@ -1,0 +1,52 @@
+{% macro trending_dish_card(dishImageSrc="",dishName="",dishCategory="",dishRating="",dishRestaurent="") %}
+
+<div class="custom-card dish-wrapper" style="padding-bottom: var(--padding-large);">
+    <!--Header-->
+    <div class="row custom-card-header">
+        <div class="col">
+            <div style="position: relative;">
+                <span class="dish-fav"><i class="bi bi-heart-fill"></i></span>
+                <img class="dish-image" src="{{ url_for('static', filename='images/sample-dish.jpg') }}">
+                <div class="dish-image-overlay"></div>
+            </div>
+        </div>
+    </div>
+    <!--Body-->
+    <div class="row custom-card-body">
+        <div class="col">
+            <div class="row">
+                <div class="col"><span class="dish-heading"> {{ dishName }}</span></div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <span class="dish-category">{{ dishCategory }}</span>
+                </div>
+                <div class="col">
+                    <span class="dish-rating">
+                        <span><i class="bi bi-star-fill"></i></span>
+                        <span><i class="bi bi-star-fill"></i></span>
+                        <span><i class="bi bi-star-fill"></i></span>
+                        <span><i class="bi bi-star-half"></i></span>
+                        <span><i class="bi bi-star"></i></span>
+                    </span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <span class="dish-shop">{{ dishRestaurent }}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Footer-->
+    <div class="row custom-card-footer">
+        <div class="col">
+            <button class="btn custom-btn-primary"><i class="bi bi-bag-fill"></i> Buy</button>
+        </div>
+        <div class="col">
+            <button class="btn custom-btn-outline"><i class="bi bi-cart-plus-fill"></i> Add Cart</button>
+        </div>
+    </div>
+</div>
+
+{% endmacro %}

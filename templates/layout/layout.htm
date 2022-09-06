@@ -1,0 +1,34 @@
+<html>
+
+<head>
+    <title>
+        {% block title %} {% endblock %}
+    </title>
+    {% include 'utilities/headers/header.htm' %}
+
+    {% block stylesheet %} {% endblock %}
+    {% block head_scripts %} {% endblock %}
+
+</head>
+
+<body>
+    <div id="top"></div>
+    {% block top_navigation %}
+    {% include 'utilities/top-announcement/top-announcement.htm' %}
+    {% include 'utilities/top-navigation/top-navigation.htm' %}
+    {% endblock %}
+
+    {% block content %}
+
+    {% endblock %}
+
+    {% block footer %}
+    {% include 'utilities/footers/footer.htm' %}
+    {% endblock %}
+
+    {% include 'utilities/scroll-to-top/scroll-to-top.htm' %}
+
+    {% block body_scripts %} {% endblock %}
+</body>
+
+</html>
