@@ -8,7 +8,7 @@ test = False
 path = ''
 
 if (test == False):
-    path = '/home/207legends/mysite/lfc/apps/website/'
+    path = '/home/sensiespot/mysite/sensei-spot/'
 
 with open(path + 'data/places/countries.json', encoding="utf8") as f:
     dataCountries = json.load(f)
