@@ -32,12 +32,11 @@ body {
 
 /* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 
-/* a,
-a:visited,
+/* a:visited,
 a:active,
+a:hover,
 a:link {
-    color: var(--color-accent);
-    text-decoration: none;
+    text-decoration: none !important;
 } */
 
 /* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
@@ -59,15 +58,24 @@ a:link {
     font-weight: 700;
     color: var(--color-primary);
     background-color: var(--color-accent);
-    box-shadow: 0 3px 10px 0 var(--color-shadow);
+    box-shadow: 0 6px 6px 0 var(--color-shadow);
 }
 
 .navbar-brand {
+    transform: translateY(2px);
+    color: var(--color-primary);
+}
+
+.navbar-brand:hover {
     color: var(--color-primary);
 }
 
 .nav-link {
     color: var(--color-primary);
+}
+
+.nav-link:hover {
+    color: var(--color-alert);
 }
 
 /* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */

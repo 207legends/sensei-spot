@@ -9,7 +9,7 @@
     background-color: white;
     border-radius: 100px;
     margin: var(--padding-large);
-    padding: var(--padding-large);
+    padding: var(--padding-small);
 }
 
 

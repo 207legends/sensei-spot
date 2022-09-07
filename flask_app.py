@@ -1,9 +1,10 @@
+from urllib import response
 from flask import Flask, render_template, request, jsonify
 import json
 
 PATH_API = "/api/v1/"
 
-test = False
+test = True
 
 path = ''
 
@@ -47,79 +48,85 @@ for i in dataCities:
 
 app = Flask(__name__)
 
-appTheme = "light"
 
+responseTemplate = {
+    "appTheme": "light"
+}
 
 @app.route("/")
 def home():
-    appTheme = request.cookies.get('app-theme')
-    return render_template("home/home.htm", appTheme=appTheme)
+    responseTemplate["appTheme"] = request.cookies.get('app-theme')
+    return render_template("home/home.htm", res=responseTemplate)
 
 
 @app.route("/login")
 def login():
-    appTheme = request.cookies.get('app-theme')
-    return render_template("login/login.htm", appTheme=appTheme, errorMsg="Username or Password is wrong")
+    responseTemplate["appTheme"] = request.cookies.get('app-theme')
+    responseTemplate["errorMsg"] = "Username or Password is wrong"
+    return render_template("login/login.htm", res=responseTemplate)
 
 
 @app.route("/signup")
 def signup():
-    appTheme = request.cookies.get('app-theme')
-    return render_template("signup/signup.htm", appTheme=appTheme, errorMsg="Username/Email/Phone already exists")
+    responseTemplate["appTheme"] = request.cookies.get('app-theme')
+    responseTemplate["errorMsg"] = "Username/Email/Phone already exists"
+    return render_template("signup/signup.htm", res=responseTemplate)
 
 
 @app.route("/careers")
 def careers():
-    appTheme = request.cookies.get('app-theme')
-    return render_template("careers/careers.htm", appTheme=appTheme)
+    responseTemplate["appTheme"] = request.cookies.get('app-theme')
+    return render_template("careers/careers.htm", res=responseTemplate)
 
 
 @app.route("/contact-us")
 def contact_us():
-    appTheme = request.cookies.get('app-theme')
-    return render_template("contact-us/contact-us.htm", appTheme=appTheme)
+    responseTemplate["appTheme"] = request.cookies.get('app-theme')
+    return render_template("contact-us/contact-us.htm", res=responseTemplate)
 
 
 @app.route("/settings")
 def settings():
-    appTheme = request.cookies.get('app-theme')
-    return render_template("settings/settings.htm", appTheme=appTheme, countries=COUNTRIES, states=STATES)
+    responseTemplate["appTheme"] = request.cookies.get('app-theme')
+    responseTemplate["states"] = STATES
+    responseTemplate["countries"] = COUNTRIES
+    return render_template("settings/settings.htm", res=responseTemplate)
 
 
 @app.route("/trending-dishes-all")
 def trending_dishes_all():
-    appTheme = request.cookies.get('app-theme')
-    return render_template("trending-dishes-all/trending-dishes-all.htm", appTheme=appTheme)
+    responseTemplate["appTheme"] = request.cookies.get('app-theme')
+    return render_template("trending-dishes-all/trending-dishes-all.htm", res=responseTemplate)
 
 
 @app.route("/trending-shops-all")
 def trending_shops_all():
-    appTheme = request.cookies.get('app-theme')
-    return render_template("trending-shops-all/trending-shops-all.htm", appTheme=appTheme)
+    responseTemplate["appTheme"] = request.cookies.get('app-theme')
+    return render_template("trending-shops-all/trending-shops-all.htm", res=responseTemplate)
 
 
 @app.route("/profile")
 def profile():
-    appTheme = request.cookies.get('app-theme')
-    return render_template("profile/profile.htm", appTheme=appTheme)
+    responseTemplate["appTheme"] = request.cookies.get('app-theme')
+    return render_template("profile/profile.htm", res=responseTemplate)
 
 
 @app.route("/help")
 def help():
-    appTheme = request.cookies.get('app-theme')
-    return render_template("help/help.htm", appTheme=appTheme)
+    responseTemplate["appTheme"] = request.cookies.get('app-theme')
+    return render_template("help/help.htm", res=responseTemplate)
 
 
 @app.route("/logout")
 def logout():
-    appTheme = request.cookies.get('app-theme')
-    return render_template("login/login.htm", appTheme=appTheme)
+    responseTemplate["appTheme"] = request.cookies.get('app-theme')
+    return render_template("login/login.htm", res=responseTemplate)
 
 
 @app.route("/menu")
 def menu():
-    appTheme = request.cookies.get('app-theme')
-    return render_template("menu/menu.htm", appTheme=appTheme)
+    responseTemplate["appTheme"] = request.cookies.get('app-theme')
+    return render_template("menu/menu.htm", res=responseTemplate)
 
 
 @app.route(PATH_API + "/countries", methods=['GET'])
