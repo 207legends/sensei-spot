@@ -4,7 +4,7 @@ import json
 
 PATH_API = "/api/v1/"
 
-test = True
+test = False
 
 path = ''
 
@@ -52,6 +52,7 @@ app = Flask(__name__)
 responseTemplate = {
     "appTheme": "light"
 }
+
 
 @app.route("/")
 def home():
