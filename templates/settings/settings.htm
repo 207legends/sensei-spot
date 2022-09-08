@@ -219,7 +219,7 @@ account!!","Yes","No","modal-delete-account-confirm") }}
 
     let element = document.querySelector("#checkbox-theme");
 
-    let currentTheme = '{{appTheme}}';
+    let currentTheme = '{{res["appTheme"]}}';
     if (currentTheme == null || currentTheme == "dark") {
         lcs_on(element);
     }
