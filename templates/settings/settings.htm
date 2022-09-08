@@ -219,12 +219,28 @@ account!!","Yes","No","modal-delete-account-confirm") }}
 
     let element = document.querySelector("#checkbox-theme");
 
-    let currentTheme = '{{res["appTheme"]}}';
+    let currentTheme = getCookie("app-theme");
     if (currentTheme == null || currentTheme == "dark") {
         lcs_on(element);
     }
     else {
         lcs_off(element);
+    }
+
+    function getCookie(cname) {
+        let name = cname + "=";
+        let decodedCookie = decodeURIComponent(document.cookie);
+        let ca = decodedCookie.split(';');
+        for (let i = 0; i < ca.length; i++) {
+            let c = ca[i];
+            while (c.charAt(0) == ' ') {
+                c = c.substring(1);
+            }
+            if (c.indexOf(name) == 0) {
+                return c.substring(name.length, c.length);
+            }
+        }
+        return "";
     }
 
     element.addEventListener('lcs-statuschange', (e) => {
