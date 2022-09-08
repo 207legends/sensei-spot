@@ -4,7 +4,7 @@ import json
 
 PATH_API = "/api/v1/"
 
-test = False
+test = True
 
 path = ''
 
@@ -50,45 +50,46 @@ app = Flask(__name__)
 
 
 responseTemplate = {
-    "appTheme": "light"
+    "app-theme": "light",
+    "app-name": "Sensei Spot"
 }
 
 
 @app.route("/")
 def home():
-    responseTemplate["appTheme"] = request.cookies.get('app-theme')
+    responseTemplate["app-theme"] = request.cookies.get('app-theme')
     return render_template("home/home.htm", res=responseTemplate)
 
 
 @app.route("/login")
 def login():
-    responseTemplate["appTheme"] = request.cookies.get('app-theme')
+    responseTemplate["app-theme"] = request.cookies.get('app-theme')
     responseTemplate["errorMsg"] = "Username or Password is wrong"
     return render_template("login/login.htm", res=responseTemplate)
 
 
 @app.route("/signup")
 def signup():
-    responseTemplate["appTheme"] = request.cookies.get('app-theme')
+    responseTemplate["app-theme"] = request.cookies.get('app-theme')
     responseTemplate["errorMsg"] = "Username/Email/Phone already exists"
     return render_template("signup/signup.htm", res=responseTemplate)
 
 
 @app.route("/careers")
 def careers():
-    responseTemplate["appTheme"] = request.cookies.get('app-theme')
+    responseTemplate["app-theme"] = request.cookies.get('app-theme')
     return render_template("careers/careers.htm", res=responseTemplate)
 
 
 @app.route("/contact-us")
 def contact_us():
-    responseTemplate["appTheme"] = request.cookies.get('app-theme')
+    responseTemplate["app-theme"] = request.cookies.get('app-theme')
     return render_template("contact-us/contact-us.htm", res=responseTemplate)
 
 
 @app.route("/settings")
 def settings():
-    responseTemplate["appTheme"] = request.cookies.get('app-theme')
+    responseTemplate["app-theme"] = request.cookies.get('app-theme')
     responseTemplate["states"] = STATES
     responseTemplate["countries"] = COUNTRIES
     return render_template("settings/settings.htm", res=responseTemplate)
@@ -96,37 +97,37 @@ def settings():
 
 @app.route("/trending-dishes-all")
 def trending_dishes_all():
-    responseTemplate["appTheme"] = request.cookies.get('app-theme')
+    responseTemplate["app-theme"] = request.cookies.get('app-theme')
     return render_template("trending-dishes-all/trending-dishes-all.htm", res=responseTemplate)
 
 
 @app.route("/trending-shops-all")
 def trending_shops_all():
-    responseTemplate["appTheme"] = request.cookies.get('app-theme')
+    responseTemplate["app-theme"] = request.cookies.get('app-theme')
     return render_template("trending-shops-all/trending-shops-all.htm", res=responseTemplate)
 
 
 @app.route("/profile")
 def profile():
-    responseTemplate["appTheme"] = request.cookies.get('app-theme')
+    responseTemplate["app-theme"] = request.cookies.get('app-theme')
     return render_template("profile/profile.htm", res=responseTemplate)
 
 
 @app.route("/help")
 def help():
-    responseTemplate["appTheme"] = request.cookies.get('app-theme')
+    responseTemplate["app-theme"] = request.cookies.get('app-theme')
     return render_template("help/help.htm", res=responseTemplate)
 
 
 @app.route("/logout")
 def logout():
-    responseTemplate["appTheme"] = request.cookies.get('app-theme')
+    responseTemplate["app-theme"] = request.cookies.get('app-theme')
     return render_template("login/login.htm", res=responseTemplate)
 
 
 @app.route("/menu")
 def menu():
-    responseTemplate["appTheme"] = request.cookies.get('app-theme')
+    responseTemplate["app-theme"] = request.cookies.get('app-theme')
     return render_template("menu/menu.htm", res=responseTemplate)
 
 

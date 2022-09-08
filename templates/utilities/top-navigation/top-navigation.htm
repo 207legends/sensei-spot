@@ -1,14 +1,9 @@
-<nav class="navbar navbar-expand-lg">
-    <a class="navbar-brand" href="{{ url_for('home') }}"><img
+<nav class="custom-top-navigation">
+    <a class="custom-navbar-brand" href="{{ url_for('home') }}"><img
             src="{{ url_for('static', filename='images/app-icon.png') }}" style="height: 38px;"> <span
-            id="top-navigation-app-name"></span></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon" style="color: var(--color-primary);font-size: 24px;"><i
-                class="bi bi-list"></i></span>
-    </button>
+            id="top-navigation-app-name">{{ res["app-name"] }}</span></a>
 
-    <ul class="navbar-nav mr-auto">
+    <ul class="ml-auto">
         <li class="nav-item active">
             <a class="nav-link" href="{{ url_for('home') }}">Home</a>
         </li>
@@ -17,12 +12,6 @@
         </li>
         <li class="nav-item active">
             <a class="nav-link" href="{{ url_for('careers') }}">Careers</a>
-        </li>
-    </ul>
-
-    <ul class="navbar-nav">
-        <li class="nav-item">
-            <a href="{{ url_for('login') }}" class="btn custom-btn-outline">LOGIN</a>
         </li>
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
@@ -37,10 +26,4 @@
             </div>
         </li>
     </ul>
-
 </nav>
-
-
-<script>
-    document.getElementById("top-navigation-app-name").innerHTML = CONSTANTS.APP_NAME.FULL_NAME;
-</script>
