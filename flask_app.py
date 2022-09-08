@@ -4,7 +4,7 @@ import json
 
 PATH_API = "/api/v1/"
 
-test = True
+test = False
 
 path = ''
 
@@ -51,7 +51,8 @@ app = Flask(__name__)
 
 responseTemplate = {
     "app-theme": "light",
-    "app-name": "Sensei Spot"
+    "app-name": "Sensei Spot",
+    "app-top-announcement": "Need a solution -> Think of a Sensie",
 }
 
 
@@ -179,7 +180,7 @@ def getCitiesFromState(country, state):
 
 @app.errorhandler(404)
 def page_not_found(e):
-    return render_template('utilities/404page/404page.htm'), 404
+    return render_template('utilities/404page/404page.htm', res=responseTemplate), 404
 
 
 if __name__ == "__main__":

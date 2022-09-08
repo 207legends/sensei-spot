@@ -1,9 +1,13 @@
 <nav class="custom-top-navigation">
-    <a class="custom-navbar-brand" href="{{ url_for('home') }}"><img
-            src="{{ url_for('static', filename='images/app-icon.png') }}" style="height: 38px;"> <span
-            id="top-navigation-app-name">{{ res["app-name"] }}</span></a>
+    <a class="custom-navbar-brand" href="{{ url_for('home') }}">
+        <img src="{{ url_for('static', filename='images/app-icon.png') }}" style="height: 38px;"> <span
+            id="top-navigation-app-name">{{ res["app-name"] }}</span>
+    </a>
 
-    <ul class="ml-auto">
+    <span class="custom-navbar-menu-icon"><i class="bi bi-list" id="navigation-hamburger-icon"
+            onclick="toggleFullScreenMenu()"></i></span>
+
+    <ul class="custom-navbar-content ml-auto">
         <li class="nav-item active">
             <a class="nav-link" href="{{ url_for('home') }}">Home</a>
         </li>
@@ -27,3 +31,16 @@
         </li>
     </ul>
 </nav>
+
+<script>
+    function toggleFullScreenMenu() {
+        if (document.getElementById("full-navigation-wrapper").style.left == "0px") {
+            document.getElementById("full-navigation-wrapper").style.left = "-110%";
+            document.querySelector("body").style.overflow = "auto";
+        }
+        else {
+            document.getElementById("full-navigation-wrapper").style.left = "0px";
+            document.querySelector("body").style.overflow = "hidden";
+        }
+    }
+</script>
