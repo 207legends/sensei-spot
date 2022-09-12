@@ -23,10 +23,10 @@
                 Navdeep Sharma
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="{{ url_for('profile') }}">Profile</a>
-                <a class="dropdown-item" href="{{ url_for('settings') }}">Setting</a>
+                <a class="dropdown-item" href="{{ url_for('blueprint_user.profile') }}">Profile</a>
+                <a class="dropdown-item" href="{{ url_for('blueprint_user.settings') }}">Setting</a>
                 <a class="dropdown-item" href="{{ url_for('help') }}">Help</a>
-                <a class="dropdown-item" href="{{ url_for('logout') }}">Logout</a>
+                <a class="dropdown-item" href="{{ url_for('blueprint_user.logout') }}">Logout</a>
             </div>
         </li>
     </ul>

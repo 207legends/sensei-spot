@@ -16,78 +16,135 @@ Sign Up
     <div class="container">
         <div class="row  mt-4 mb-4 ">
             <div class="col-auto" style="text-align: center;margin-left: auto;margin-right: auto;">
-                <div class="custom-card">
-                    <div class="custom-card-body" style="text-align: left;margin: 12px;">
-                        <div class="alert alert-danger alert-dismissible fade show" style="text-align: left;">
-                            <button type="button" class="close" data-dismiss="alert">&times;</button>
-                            {{res["errorMsg"]}}
-                        </div>
-                        <div class="row">
-                            <div class="col" style="text-align: center;">
-                                <h3><b>Hi Foodie !!</b></h3>
+                <form class="needs-validation" novalidate>
+                    <div class="custom-card">
+                        <div class="custom-card-body" style="text-align: left;margin: 12px;">
+                            <div class="alert alert-danger alert-dismissible fade show" style="text-align: left;">
+                                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                {{res["errorMsg"]}}
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col">
-                                <!-- <h5>Hi Foodie !!</h5> -->
-                                <h6>Enter the Username and Password to order your food</h6>
+                            <div class="row">
+                                <div class="col" style="text-align: center;">
+                                    <h3><b>Hi USER !!</b></h3>
+                                </div>
                             </div>
-                        </div>
-                        <div class="row mt-4">
-                            <div class="col">
-                                <div class="form-group">
-                                    <input type="text" class="form-control" id="usr"
-                                        placeholder="Username / Mobile / Email">
+                            <div class="row">
+                                <div class="col">
+                                    <!-- <h5>Hi Foodie !!</h5> -->
+                                    <h6>Enter the Username and Password to order your food</h6>
                                 </div>
-                                <div class="form-group">
-                                    <input type="password" class="form-control" id="pwd" placeholder="Password">
+                            </div>
+                            <div class="row mt-4">
+                                <div class="col">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" id="signup-user-username"
+                                            name="signup-user-username" placeholder="Username / Mobile / Email"
+                                            required>
+                                        <div class="invalid-feedback">
+                                            Email or Phonenumber is not in correct format
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="password" class="form-control" id="signup-user-password1"
+                                            placeholder="Password" name="signup-user-password1" required>
+                                        <div class="invalid-feedback">
+
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="password" class="form-control" id="signup-user-password2"
+                                            name="signup-user-password2" placeholder="Confirm Password" required>
+                                        <div class="invalid-feedback">
+                                            Password doesnot match
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <select class="form-control" id="signup-user-role" name="signup-user-role"
+                                            required>
+                                            <option value="student">Student</option>
+                                            <option value="teacher">Teacher</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="" id="invalidCheck"
+                                                required>
+                                            <label class="form-check-label" for="invalidCheck">
+                                                Agree to terms and conditions
+                                            </label>
+                                            <div class="invalid-feedback">
+                                                You must agree before submitting.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group mb-4">
+                                        <button class="btn custom-btn-primary" type="submit">
+                                            Sign Up <div class="spinner-border  spinner-border-sm"></div>
+                                        </button>
+                                    </div>
                                 </div>
-                                <div class="form-group">
-                                    <input type="password" class="form-control" id="pwd" placeholder="Confirm Password">
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <span class="center-align"
+                                        style="background: var(--color-card);border-radius:50%;padding:12px;">OR</span>
+                                    <hr>
                                 </div>
-                                <div class="form-group">
-                                    <button class="btn custom-btn-primary">
-                                        Sign Up <div class="spinner-border  spinner-border-sm"></div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col">
+                                    <button class="btn custom-btn-outline">
+                                        <i class="bi bi-google" style="font-size:x-large;"></i>
+                                    </button>
+                                </div>
+                                <div class="col">
+                                    <button class="btn custom-btn-outline">
+                                        <i class="bi bi-apple" style="font-size:x-large;"></i>
+                                    </button>
+                                </div>
+                                <div class="col">
+                                    <button class="btn custom-btn-outline">
+                                        <i class="bi bi-facebook" style="font-size:x-large;"></i>
                                     </button>
                                 </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col">
-                                <span class="center-align"
-                                    style="background: var(--color-card);border-radius:50%;padding:12px;">OR</span>
-                                <hr>
-                            </div>
-                        </div>
-                        <div class="row mt-3">
-                            <div class="col">
-                                <button class="btn custom-btn-outline">
-                                    <i class="bi bi-google" style="font-size:x-large;"></i>
-                                </button>
-                            </div>
-                            <div class="col">
-                                <button class="btn custom-btn-outline">
-                                    <i class="bi bi-apple" style="font-size:x-large;"></i>
-                                </button>
-                            </div>
-                            <div class="col">
-                                <button class="btn custom-btn-outline">
-                                    <i class="bi bi-facebook" style="font-size:x-large;"></i>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="row mt-4">
-                            <div class="col">
-                                <span>Already have an account ? <b><a href="{{ url_for('login') }}">LOG
-                                            IN</a></b></span>
+                            <div class="row mt-4">
+                                <div class="col">
+                                    <span>Already have an account ? <b><a
+                                                href="{{ url_for('blueprint_user.login') }}">LOG
+                                                IN</a></b></span>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                </form>
             </div>
         </div>
     </div>
 </div>
+{% endblock %}
+
+{% block body_scripts %}
+<script>
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+    (function () {
+        'use strict';
+        window.addEventListener('load', function () {
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.getElementsByClassName('needs-validation');
+            // Loop over them and prevent submission
+            var validation = Array.prototype.filter.call(forms, function (form) {
+                form.addEventListener('submit', function (event) {
+                    if (form.checkValidity() === false) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                }, false);
+            });
+        }, false);
+    })();
+</script>
 {% endblock %}
 
 {% block footer %} {% endblock %}
