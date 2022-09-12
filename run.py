@@ -1,6 +1,8 @@
 from flask import Flask
 import json
 
+test = False
+
 responseTemplate = {
     "app-theme": "light",
     "app-name": "Sensei Spot",
@@ -8,9 +10,6 @@ responseTemplate = {
 }
 
 app = Flask(__name__)
-
-
-test = True
 
 path = ''
 
