@@ -40,13 +40,6 @@ def help():
     responseTemplate["app-theme"] = request.cookies.get('app-theme')
     return render_template("help/help.htm", res=responseTemplate)
 
-
-@blueprint_user.route("/logout")
-def logout():
-    responseTemplate["app-theme"] = request.cookies.get('app-theme')
-    return render_template("login/login.htm", res=responseTemplate)
-
-
 @app.route("/menu")
 def menu():
     responseTemplate["app-theme"] = request.cookies.get('app-theme')

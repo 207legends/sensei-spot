@@ -1,9 +1,5 @@
-from flask import Blueprint, request, render_template
+from flask import Blueprint, request, render_template, redirect, url_for
 from run import responseTemplate, STATES, CITIES, COUNTRIES
-
-print("#####################################################")
-
-print(COUNTRIES)
 
 blueprint_user = Blueprint('blueprint_user', __name__,
                            static_folder='static', template_folder='templates')
@@ -35,3 +31,8 @@ def settings():
 def profile():
     responseTemplate["app-theme"] = request.cookies.get('app-theme')
     return render_template("profile/profile.htm", res=responseTemplate)
+
+
+@blueprint_user.route("/logout")
+def logout():
+    return redirect(url_for('blueprint_user.login'))

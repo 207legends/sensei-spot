@@ -1,8 +1,5 @@
 .search-container {
-    margin-top: var(--padding-extra-large);
-    padding: var(--padding-extra-large);
-    border-radius: var(--border-radius);
-    background-color: var(--color-shadow);
+    
 }
 
 .custom-search-wrapper {
