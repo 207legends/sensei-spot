@@ -1,7 +1,8 @@
 from flask import Flask
 import json
+import os
 
-test = False
+app = Flask(__name__)
 
 responseTemplate = {
     "app-theme": "light",
@@ -9,12 +10,7 @@ responseTemplate = {
     "app-top-announcement": "Need a solution -> Think of a Sensie",
 }
 
-app = Flask(__name__)
-
-path = ''
-
-if (test == False):
-    path = '/home/sensiespot/mysite/sensei-spot/'
+path = os.getcwd() + '/'
 
 with open(path + 'data/places/countries.json', encoding="utf8") as f:
     dataCountries = json.load(f)

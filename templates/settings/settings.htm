@@ -77,7 +77,7 @@ Settings
                                             <label for="user-country">Country</label>
                                             <select class="form-control selectpicker" id="user-country"
                                                 data-live-search="true">
-                                                {% for country in countries %}
+                                                {% for country in res["countries"] %}
                                                 <option value="{{country}}">
                                                     {{res["country"]}}
                                                 </option>

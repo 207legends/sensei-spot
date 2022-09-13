@@ -1,6 +1,10 @@
 from flask import Blueprint, request, render_template
 from run import responseTemplate, STATES, CITIES, COUNTRIES
 
+print("#####################################################")
+
+print(COUNTRIES)
+
 blueprint_user = Blueprint('blueprint_user', __name__,
                            static_folder='static', template_folder='templates')
 
