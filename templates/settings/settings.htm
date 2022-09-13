@@ -79,7 +79,7 @@ Settings
                                                 data-live-search="true">
                                                 {% for country in res["countries"] %}
                                                 <option value="{{country}}">
-                                                    {{res["country"]}}
+                                                    {{country}}
                                                 </option>
                                                 {% endfor %}
                                             </select>
@@ -179,6 +179,9 @@ account!!","Yes","No","modal-delete-account-confirm") }}
 {% block body_scripts %}
 <script>
 
+let url_prefix = CONSTANTS.API_PATH + '/places/';
+console.log(url_prefix)
+
     lc_switch("input[type=checkbox]");
 
     $(function () {
@@ -186,7 +189,7 @@ account!!","Yes","No","modal-delete-account-confirm") }}
     });
 
     document.getElementById("user-country").onchange = () => {
-        let URL = `/api/v1/${document.getElementById("user-country").value}/states`;
+        let URL = `${url_prefix}${document.getElementById("user-country").value}/states`;
 
         document.getElementById("user-state").innerHTML = ``;
         document.getElementById("user-city").innerHTML = ``;
@@ -197,7 +200,7 @@ account!!","Yes","No","modal-delete-account-confirm") }}
     }
 
     document.getElementById("user-state").onchange = () => {
-        let URL = `/api/v1/${document.getElementById("user-country").value}/${document.getElementById("user-state").value}/cities`;
+        let URL = `${url_prefix}${document.getElementById("user-country").value}/${document.getElementById("user-state").value}/cities`;
         document.getElementById("user-city").innerHTML = ``;
 
         $.get(URL, (data, status) => {

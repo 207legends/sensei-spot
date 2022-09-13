@@ -3,6 +3,8 @@ import json
 import os
 
 app = Flask(__name__)
+PATH_API = "/api/v1/"
+
 
 responseTemplate = {
     "app-theme": "light",
