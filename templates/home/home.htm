@@ -6,8 +6,8 @@ Home
 
 {% block stylesheet %}
 <link rel="stylesheet" href="{{ url_for('static', filename='css/home/style.css') }}">
-<link rel="stylesheet" href="{{ url_for('static', filename='css/utilities/trending-dishes.css') }}">
-<link rel="stylesheet" href="{{ url_for('static', filename='css/utilities/trending-shops.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/utilities/trending-skills.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/utilities/trending-subjects.css') }}">
 <link rel="stylesheet" href="{{ url_for('static', filename='css/utilities/search-container.css') }}">
 <link rel="stylesheet" href="{{ url_for('static', filename='css/extras/flipdown.css') }}">
 <style>
@@ -35,9 +35,9 @@ Home
 </div>
 <div class="container-fluid main-section-wrapper" id="main">
     <div class="container">
-        {% include 'utilities/trending-dish/trending-dish.htm' %}
+        {% include 'utilities/trending-skill/trending-skill.htm' %}
 
-        {% include 'utilities/trending-shop/trending-shops.htm' %}
+        {% include 'utilities/trending-subject/trending-subject.htm' %}
     </div>
 </div>
 

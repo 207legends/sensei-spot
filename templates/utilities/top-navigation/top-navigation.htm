@@ -1,3 +1,32 @@
+{% from "utilities/notification-card/notification-card.htm" import notification_card with context %}
+
+<style>
+    .notification-wrapper {
+        width: 350px;
+        position: absolute;
+        background: var(--color-primary);
+        transform: translateY(38px) translateX(-50%);
+        color: black;
+        padding: 12px;
+        border-radius: 8px;
+        border: thick solid var(--color-accent);
+        max-height: 50vh;
+        overflow-y: auto;
+    }
+
+    .notification-wrapper::before {
+        content: '';
+        width: 0;
+        height: 0;
+        border: 12px solid var(--color-accent);
+        position: absolute;
+        right: 50%;
+        top: 0;
+        border-color: transparent transparent var(--color-accent) transparent;
+        transform: translateY(-28px) translateX(50%);
+    }
+</style>
+
 <nav class="custom-top-navigation">
     <a class="custom-navbar-brand" href="{{ url_for('home') }}">
         <img src="{{ url_for('static', filename='images/app-icon.png') }}" style="height: 38px;"> <span
@@ -20,6 +49,26 @@
     </ul>
 
     <ul class="custom-navbar-content" style="position: absolute;right:0;top:50%;transform: translateY(-50%);">
+        <li class="nav-item">
+            <i class="bi bi-bell-fill" style="color: var(--color-primary);"></i>
+            <div class="notification-wrapper">
+                <div class="row">
+                    <div class="col-auto">
+                        <i class="bi bi-bell-fill"></i>
+                    </div>
+                    <div class="col">
+                        Messages
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        {% for i in range(10) %}
+                        {{ notification_card() }}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </li>
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">

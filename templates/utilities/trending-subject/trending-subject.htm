@@ -1,12 +1,12 @@
-{% from "utilities/trending-shop/trending-shop-card.htm" import trending_shop_card with context %}
+{% from "utilities/trending-subject/trending-subject-card.htm" import trending_subject_card with context %}
 {% from "utilities/heading-with-show/heading-with-show.htm" import heading_with_show with context %}
 
-<div class="trending-shops-wrapper">
-    {{ heading_with_show("Trending Shops",url_for('trending_shops_all')) }}
+<div class="trending-subjects-wrapper">
+    {{ heading_with_show("Trending Subjects",url_for('trending_shops_all')) }}
     <div class="row">
         <div class="col div-horizontal-scrolling">
             {% for i in range(10) %}
-            {{ trending_shop_card() }}
+            {{ trending_subject_card() }}
             {% endfor %}
         </div>
     </div>

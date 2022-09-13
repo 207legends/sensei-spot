@@ -1,13 +1,13 @@
-{% macro trending_dish_card(dishImageSrc="",dishName="",dishCategory="",dishRating="",dishRestaurent="") %}
+{% macro trending_skill_card(skillImageSrc="",skillName="",skillCategory="",skillRating="") %}
 
-<div class="custom-card dish-wrapper" style="padding-bottom: var(--padding-large);">
+<div class="custom-card skill-wrapper" style="padding-bottom: var(--padding-large);">
     <!--Header-->
     <div class="row custom-card-header">
         <div class="col">
             <div style="position: relative;">
-                <span class="dish-fav"><i class="bi bi-heart-fill"></i></span>
-                <img class="dish-image" src="{{ url_for('static', filename='images/sample-dish.jpg') }}">
-                <div class="dish-image-overlay"></div>
+                <span class="skill-fav"><i class="bi bi-heart-fill"></i></span>
+                <img class="skill-image" src="{{ url_for('static', filename='images/sample-dish.jpg') }}">
+                <div class="skill-image-overlay"></div>
             </div>
         </div>
     </div>
@@ -15,25 +15,20 @@
     <div class="row custom-card-body">
         <div class="col">
             <div class="row">
-                <div class="col"><span class="dish-heading"> {{ dishName }}</span></div>
+                <div class="col"><span class="skill-heading"> {{ skillName }}</span></div>
             </div>
             <div class="row">
                 <div class="col">
-                    <span class="dish-category">{{ dishCategory }}</span>
+                    <span class="skill-category">{{ skillCategory }}</span>
                 </div>
                 <div class="col">
-                    <span class="dish-rating">
+                    <span class="skill-rating">
                         <span><i class="bi bi-star-fill"></i></span>
                         <span><i class="bi bi-star-fill"></i></span>
                         <span><i class="bi bi-star-fill"></i></span>
                         <span><i class="bi bi-star-half"></i></span>
                         <span><i class="bi bi-star"></i></span>
                     </span>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <span class="dish-shop">{{ dishRestaurent }}</span>
                 </div>
             </div>
         </div>

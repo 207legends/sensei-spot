@@ -1,16 +1,16 @@
-.trending-shops-wrapper {
+.trending-subjects-wrapper {
     margin-top: var(--padding-extra-large);
     margin-bottom: var(--padding-extra-large);
 }
 
-.shop-card-wrapper {
+.subject-card-wrapper {
     min-width: 300px;
     width: 20vw;
     display: inline-block;
     margin-right: var(--padding-extra-large);
 }
 
-.shop-card-image {
+.subject-card-image {
     width: 100%;
     border-radius: var(--border-radius);
 }

@@ -1,43 +1,43 @@
-.trending-dishes-wrapper {
+.trending-skills-wrapper {
     margin-top: var(--padding-extra-large);
     margin-bottom: var(--padding-extra-large);
 }
 
-.dish-wrapper {
+.skill-wrapper {
     min-width: 300px;
     width: 20vw;
     display: inline-block;
     margin-right: var(--padding-extra-large);
 }
 
-.dish-wrapper .dish-image {
+.skill-wrapper .skill-image {
     width: 100%;
     border-radius: 12px 12px 12px 12px;
 }
 
-.dish-wrapper .dish-heading {
+.skill-wrapper .skill-heading {
     font-weight: 700;
     font-size: x-large;
     color: var(--color-secondary);
 }
 
-.dish-wrapper .dish-category {
+.skill-wrapper .skill-category {
     font-weight: 700;
     color: var(--color-secondary);
     font-size: large;
 }
 
-.dish-wrapper .dish-shop {
+.skill-wrapper .skill-shop {
     font-weight: 700;
     color: var(--color-secondary);
     font-size: small;
 }
 
-.dish-wrapper .dish-rating {
+.skill-wrapper .skill-rating {
     color: var(--color-accent);
 }
 
-.dish-wrapper .dish-fav {
+.skill-wrapper .skill-fav {
     position: absolute;
     right: var(--padding-extra-large);
     top: var(--padding-extra-large);
@@ -48,7 +48,7 @@
     padding: var(--padding-medium);
 }
 
-.dish-wrapper .dish-image-overlay {
+.skill-wrapper .skill-image-overlay {
     position: absolute;
     bottom: 0;
     left: 0;
