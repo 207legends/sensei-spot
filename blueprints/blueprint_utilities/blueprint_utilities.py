@@ -3,6 +3,12 @@ from run import responseTemplate
 
 blueprint_utilities = Blueprint("blueprint_utilities",__name__,static_folder='static', template_folder='templates')
 
+@blueprint_utilities.route("/")
+def home():
+    responseTemplate["app-theme"] = request.cookies.get('app-theme')
+    return render_template("home/home.htm", res=responseTemplate)
+
+
 @blueprint_utilities.route("/careers")
 def careers():
     responseTemplate["app-theme"] = request.cookies.get('app-theme')

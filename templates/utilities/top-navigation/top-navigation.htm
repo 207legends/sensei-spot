@@ -17,7 +17,7 @@
 </style>
 
 <nav class="custom-top-navigation">
-    <a class="custom-navbar-brand" href="{{ url_for('home') }}">
+    <a class="custom-navbar-brand" href="{{ url_for('blueprint_utilities.home') }}">
         <img src="{{ url_for('static', filename='images/app-icon.png') }}" style="height: 38px;"> <span
             id="top-navigation-app-name">{{ res["app-name"] }}</span>
     </a>
@@ -27,10 +27,10 @@
 
     <ul class="custom-navbar-content">
         <li class="nav-item active">
-            <a class="nav-link" href="{{ url_for('home') }}">Home</a>
+            <a class="nav-link" href="{{ url_for('blueprint_utilities.home') }}">Home</a>
         </li>
         <li class="nav-item active">
-            <a class="nav-link" href="{{ url_for('home') }}">Menu</a>
+            <a class="nav-link" href="{{ url_for('blueprint_utilities.home') }}">Menu</a>
         </li>
         <li class="nav-item active">
             <a class="nav-link" href="{{ url_for('blueprint_utilities.careers') }}">Careers</a>
