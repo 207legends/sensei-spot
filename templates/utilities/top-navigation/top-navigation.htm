@@ -5,25 +5,14 @@
         width: 350px;
         position: absolute;
         background: var(--color-primary);
-        transform: translateY(38px) translateX(-50%);
+        transform: translateY(24px) translateX(-50%);
         color: black;
-        padding: 12px;
         border-radius: 8px;
         border: thick solid var(--color-accent);
         max-height: 50vh;
         overflow-y: auto;
-    }
-
-    .notification-wrapper::before {
-        content: '';
-        width: 0;
-        height: 0;
-        border: 12px solid var(--color-accent);
-        position: absolute;
-        right: 50%;
-        top: 0;
-        border-color: transparent transparent var(--color-accent) transparent;
-        transform: translateY(-28px) translateX(50%);
+        overflow-x: hidden;
+        display: none;
     }
 </style>
 
@@ -50,17 +39,20 @@
 
     <ul class="custom-navbar-content" style="position: absolute;right:0;top:50%;transform: translateY(-50%);">
         <li class="nav-item">
-            <i class="bi bi-bell-fill" style="color: var(--color-primary);"></i>
-            <div class="notification-wrapper">
-                <div class="row">
+            <i class="bi bi-bell-fill" style="color: var(--color-primary);cursor: pointer;"
+                onclick="toggleNotification()"></i>
+            <div class="notification-wrapper" id="notification-wrapper">
+                <div class="row"
+                    style="position: sticky;top:0;background-color: var(--color-accent);z-index: 99;padding: 12px;box-shadow: 0 2px 4px 0 var(--color-shdaow);color: var(--color-primary);">
                     <div class="col-auto">
-                        <i class="bi bi-bell-fill"></i>
+                        <i class="bi bi-bell-fill"
+                            style="font-size: large;position: absolute;top: 50%;transform: translateY(-50%);"></i>
                     </div>
                     <div class="col">
                         Messages
                     </div>
                 </div>
-                <div class="row">
+                <div class="row" style="padding: 12px;">
                     <div class="col">
                         {% for i in range(10) %}
                         {{ notification_card() }}
@@ -93,6 +85,17 @@
         else {
             document.getElementById("full-navigation-wrapper").style.left = "0px";
             document.querySelector("body").style.overflow = "hidden";
+        }
+    }
+
+    function toggleNotification() {
+        let e = document.getElementById("notification-wrapper");
+
+        if (e.style.display === "block") {
+            e.style.display = "none";
+        }
+        else {
+            e.style.display = "block";
         }
     }
 </script>
