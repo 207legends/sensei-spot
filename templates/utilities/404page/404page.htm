@@ -4,10 +4,43 @@
 Home
 {% endblock %}
 
+{% block stylesheet %}
+<style>
+    .image-404 {
+        width: 25vw;
+    }
+
+    @media only screen and (max-width: 600px) {
+        .image-404 {
+            width: 50vw;
+        }
+    }
+</style>
+{% endblock %}
+
 {% block content %}
-<center>
-    <div class="custom-card">
-        <h1>404 Not Found</h1>
+<div class="container">
+    <div class="row">
+        <div class="col" style="text-align: center;">
+            <div class="row">
+                <div class="col">
+                    <img src="{{ url_for('static', filename='images/image-404.png') }}" class="image-404">
+                </div>
+            </div>
+            <h3 style="color: var(--color-accent);">
+                <b>Looks like you hit a wall !!</b>
+            </h3>
+            <div style="margin-top: 24px;">
+                <a href="{{ url_for('blueprint_utilities.home') }}"
+                    style="border-radius: 100px;background-color: var(--color-accent);border:none;color : white; padding: 12px 24px;">GO
+                    TO
+                    HOMEPAGE</a>
+            </div>
+        </div>
     </div>
-</center>
+</div>
+{% endblock %}
+
+{% block footer %}
+
 {% endblock %}
