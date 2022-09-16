@@ -12,69 +12,56 @@
         max-height: 50vh;
         overflow-y: auto;
         overflow-x: hidden;
-        display: none;
     }
 </style>
 
-<nav class="custom-top-navigation">
-    <a class="custom-navbar-brand" href="{{ url_for('blueprint_utilities.home') }}">
-        <img src="{{ url_for('static', filename='images/app-icon.png') }}" style="height: 38px;"> <span
-            id="top-navigation-app-name">{{ res["app-name"] }}</span>
-    </a>
-
-    <span class="custom-navbar-menu-icon"><i class="bi bi-list" id="navigation-hamburger-icon"
-            onclick="toggleFullScreenMenu()"></i></span>
-
-    <ul class="custom-navbar-content">
-        <li class="nav-item active">
-            <a class="nav-link" href="{{ url_for('blueprint_utilities.home') }}">Home</a>
-        </li>
-        <li class="nav-item active">
-            <a class="nav-link" href="{{ url_for('blueprint_utilities.home') }}">Menu</a>
-        </li>
-        <li class="nav-item active">
-            <a class="nav-link" href="{{ url_for('blueprint_utilities.careers') }}">Careers</a>
-        </li>
-    </ul>
-
-    <ul class="custom-navbar-content" style="position: absolute;right:0;top:50%;transform: translateY(-50%);">
-        <li class="nav-item">
-            <i class="bi bi-bell-fill" style="color: var(--color-primary);cursor: pointer;"
-                onclick="toggleNotification()"></i>
-            <div class="notification-wrapper" id="notification-wrapper">
-                <div class="row"
-                    style="position: sticky;top:0;background-color: var(--color-accent);z-index: 99;padding: 12px;box-shadow: 0 2px 4px 0 var(--color-shdaow);color: var(--color-primary);">
-                    <div class="col-auto">
-                        <i class="bi bi-bell-fill"
-                            style="font-size: large;position: absolute;top: 50%;transform: translateY(-50%);"></i>
-                    </div>
-                    <div class="col">
-                        Messages
-                    </div>
-                </div>
-                <div class="row" style="padding: 12px;">
-                    <div class="col">
-                        {% for i in range(10) %}
-                        {{ notification_card() }}
-                        {% endfor %}
-                    </div>
-                </div>
-            </div>
-        </li>
-        <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false">
-                Navdeep Sharma
+<div class="container-fluid custom-top-navigation">
+    <div class="container">
+        <nav class="custom-top-navigation" style="box-shadow: none;">
+            <a class="custom-navbar-brand" href="{{ url_for('blueprint_utilities.home') }}">
+                <img src="{{ url_for('static', filename='images/app-icon.png') }}" style="height: 38px;"> <span
+                    id="top-navigation-app-name">{{ res["app-name"] }}</span>
             </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="{{ url_for('blueprint_user.profile') }}">Profile</a>
-                <a class="dropdown-item" href="{{ url_for('blueprint_user.settings') }}">Setting</a>
-                <a class="dropdown-item" href="{{ url_for('blueprint_utilities.help') }}">Help</a>
-                <a class="dropdown-item" href="{{ url_for('blueprint_user.logout') }}">Logout</a>
-            </div>
-        </li>
-    </ul>
-</nav>
+
+            <span class="custom-navbar-menu-icon"><i class="bi bi-list" id="navigation-hamburger-icon"
+                    onclick="toggleFullScreenMenu()"></i></span>
+
+            <ul class="custom-navbar-content">
+                <li class="nav-item active">
+                    <a class="nav-link" href="{{ url_for('blueprint_utilities.home') }}">Home</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="{{ url_for('blueprint_utilities.home') }}">Menu</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="{{ url_for('blueprint_utilities.careers') }}">Careers</a>
+                </li>
+            </ul>
+
+            <ul class="custom-navbar-content" style="position: absolute;right:0;top:50%;transform: translateY(-50%);">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownNotification" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="bi bi-bell-fill" style="color: var(--color-primary);cursor: pointer;"></i>
+                    </a>
+                    {% include 'utilities/top-navigation/top-navigation-notification-container.htm' %}
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownProfile" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Navdeep Sharma
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownProfile">
+                        <a class="dropdown-item" href="{{ url_for('blueprint_user.profile') }}">Profile</a>
+                        <a class="dropdown-item" href="{{ url_for('blueprint_user.settings') }}">Setting</a>
+                        <a class="dropdown-item" href="{{ url_for('blueprint_utilities.help') }}">Help</a>
+                        <a class="dropdown-item" href="{{ url_for('blueprint_user.logout') }}">Logout</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
 
 <script>
     function toggleFullScreenMenu() {
@@ -86,16 +73,5 @@
             document.getElementById("full-navigation-wrapper").style.left = "0px";
             document.querySelector("body").style.overflow = "hidden";
         }
-    }
-
-    function toggleNotification() {
-        let e = document.getElementById("notification-wrapper");
-
-        if (e.style.display === "block") {
-            e.style.display = "none";
-        }
-        else {
-            e.style.display = "block";
-        }
-    }
+    }   
 </script>

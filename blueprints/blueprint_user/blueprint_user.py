@@ -36,3 +36,9 @@ def profile():
 @blueprint_user.route("/logout")
 def logout():
     return redirect(url_for('blueprint_user.login'))
+
+
+@blueprint_user.route("/notifications")
+def notifications():
+    responseTemplate["app-theme"] = request.cookies.get('app-theme')
+    return render_template("notifications/notifications.htm", res=responseTemplate)
