@@ -1,7 +1,5 @@
 from dependencies import *
 
-app = Flask(__name__)
-
 
 @app.route("/trending-dishes-all")
 def trending_skills_all():
