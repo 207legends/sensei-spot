@@ -24,8 +24,8 @@ Settings
             <li>Password</li>
             <li>Notifications</li>
             <hr>
-            <li><button class="btn custom-btn-danger" data-toggle="modal" data-target="#modal-delete-account-confirm"><i
-                        class="bi bi-trash3-fill"></i> DELETE
+            <li><button class="btn custom-btn-primary" data-toggle="modal"
+                    data-target="#modal-delete-account-confirm"><i class="bi bi-trash3-fill"></i> DELETE
                     ACCOUNT</button></li>
         </ul>
     </div>
@@ -179,8 +179,8 @@ account!!","Yes","No","modal-delete-account-confirm") }}
 {% block body_scripts %}
 <script>
 
-let url_prefix = CONSTANTS.API_PATH + '/places/';
-console.log(url_prefix)
+    let url_prefix = CONSTANTS.API_PATH + '/places/';
+    console.log(url_prefix)
 
     lc_switch("input[type=checkbox]");
 

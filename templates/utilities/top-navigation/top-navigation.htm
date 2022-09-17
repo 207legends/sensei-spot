@@ -4,15 +4,13 @@
     .notification-wrapper {
         width: 350px;
         position: absolute;
-        background: var(--color-primary);
-        transform: translateY(24px) translateX(-50%);
-        color: black;
         border-radius: 8px;
-        border: thick solid var(--color-accent);
         max-height: 50vh;
         overflow-y: auto;
         overflow-x: hidden;
     }
+
+    .dropdown-item {}
 </style>
 
 <div class="container-fluid custom-top-navigation">
@@ -52,10 +50,32 @@
                         Navdeep Sharma
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownProfile">
-                        <a class="dropdown-item" href="{{ url_for('blueprint_user.profile') }}">Profile</a>
-                        <a class="dropdown-item" href="{{ url_for('blueprint_user.settings') }}">Setting</a>
-                        <a class="dropdown-item" href="{{ url_for('blueprint_utilities.help') }}">Help</a>
-                        <a class="dropdown-item" href="{{ url_for('blueprint_user.logout') }}">Logout</a>
+                        <div class="row" style="margin: 0 3px;">
+                            <div class="col">
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <img src="{{ url_for('static', filename='images/sample-profile-image.webp') }}"
+                                                    style="width: 48px;margin-right: 12px;">
+                                            </td>
+                                            <td>
+                                                Navdeep Sharma
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <hr>
+                            </div>
+                        </div>
+                        <a class="dropdown-item" href="{{ url_for('blueprint_user.profile') }}"><i
+                                class="bi bi-person-rolodex"></i> Profile</a>
+                        <a class="dropdown-item" href="{{ url_for('blueprint_user.settings') }}"><i
+                                class="bi bi-gear-wide-connected"></i> Setting</a>
+                        <a class="dropdown-item" href="{{ url_for('blueprint_utilities.help') }}"><i
+                                class="bi bi-question-diamond"></i> Help</a>
+                        <a class="dropdown-item" href="{{ url_for('blueprint_user.logout') }}"><i
+                                class="bi bi-box-arrow-right"></i> Logout</a>
                     </div>
                 </li>
             </ul>
