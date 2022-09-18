@@ -1,11 +1,14 @@
-from flask import Blueprint, request, render_template, redirect, url_for
-from run import responseTemplate
+from dependencies import *
 
-blueprint_utilities = Blueprint("blueprint_utilities",__name__,static_folder='static', template_folder='templates')
+blueprint_utilities = Blueprint(
+    "blueprint_utilities", __name__, static_folder='static', template_folder='templates')
+
 
 @blueprint_utilities.route("/")
 def home():
     responseTemplate["app-theme"] = request.cookies.get('app-theme')
+    responseTemplate["stats"] = [['100+', 'Subjects'],
+                                 ['100+', 'Skills'], ['1K+', 'Teachers']]
     return render_template("home/home.htm", res=responseTemplate)
 
 
@@ -19,6 +22,7 @@ def careers():
 def contact_us():
     responseTemplate["app-theme"] = request.cookies.get('app-theme')
     return render_template("contact-us/contact-us.htm", res=responseTemplate)
+
 
 @blueprint_utilities.route("/help")
 def help():

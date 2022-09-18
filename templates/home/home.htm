@@ -38,6 +38,19 @@ Home
         {% include 'utilities/trending-skill/trending-skill.htm' %}
 
         {% include 'utilities/trending-subject/trending-subject.htm' %}
+
+        <div class="row" style="background-color: var(--color-shadow);padding: 24px;">
+            <div class="col">
+                <div class="row">
+                    {% for stat in res["stats"] %}
+                    <div class="col-sm" style="text-align: center;">
+                        <h4>{{ stat[0] }}</h4>
+                        <h3><b>{{ stat[1] }}</b></h3>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
