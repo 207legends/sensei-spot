@@ -6,15 +6,14 @@ app = Flask(__name__)
 
 PATH_API = "/api/v1/"
 
-
 responseTemplate = {
     "app-theme": "light",
     "app-name": "Sensei Spot",
     "app-top-announcement": "Need a solution -> Think of a Sensie",
 }
 
-#path = '/home/sensiespot/mysite/sensei-spot/'
-path = os.getcwd() + '/'
+path = ''
+#path = os.getcwd() + '/'
 
 with open(path + 'data/places/countries.json', encoding="utf8") as f:
     dataCountries = json.load(f)

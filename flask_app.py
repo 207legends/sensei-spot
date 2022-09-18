@@ -23,8 +23,8 @@ def page_not_found(e):
     return render_template('utilities/404page/404page.htm', res=responseTemplate), 404
 
 
-if __name__ == "__main__":
-    app.register_blueprint(blueprint_user, url_prefix="/user")
-    app.register_blueprint(blueprint_utilities, url_prefix="")
-    app.register_blueprint(api_places, url_prefix=PATH_API+"places")
-    app.run(debug=True)
+app.register_blueprint(blueprint_user, url_prefix="/user")
+app.register_blueprint(blueprint_utilities, url_prefix="")
+app.register_blueprint(api_places, url_prefix=PATH_API+"places")
+
+app.run(debug=True)
