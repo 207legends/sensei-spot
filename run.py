@@ -15,37 +15,37 @@ responseTemplate = {
 path = ''
 #path = os.getcwd() + '/'
 
-with open(path + 'data/places/countries.json', encoding="utf8") as f:
-    dataCountries = json.load(f)
+# with open(path + 'data/places/countries.json', encoding="utf8") as f:
+#     dataCountries = json.load(f)
 
 COUNTRIES = []
 
-for i in dataCountries:
-    COUNTRIES.append(i["name"])
+# for i in dataCountries:
+#     COUNTRIES.append(i["name"])
 
-with open(path + 'data/places/states.json', encoding="utf8") as f:
-    dataStates = json.load(f)
+# with open(path + 'data/places/states.json', encoding="utf8") as f:
+#     dataStates = json.load(f)
 
 STATES = {}
 
-for i in dataStates:
-    c = i["country_name"]
-    s = i["name"]
-    if c not in STATES:
-        STATES[c] = [s]
-    else:
-        STATES[c].append(s)
+# for i in dataStates:
+#     c = i["country_name"]
+#     s = i["name"]
+#     if c not in STATES:
+#         STATES[c] = [s]
+#     else:
+#         STATES[c].append(s)
 
 
-with open(path + 'data/places/cities.json', encoding="utf8") as f:
-    dataCities = json.load(f)
+# with open(path + 'data/places/cities.json', encoding="utf8") as f:
+#     dataCities = json.load(f)
 
 CITIES = {}
 
-for i in dataCities:
-    s = i["state_name"]
-    c = i["name"]
-    if s not in CITIES:
-        CITIES[s] = [c]
-    else:
-        CITIES[s].append(c)
+# for i in dataCities:
+#     s = i["state_name"]
+#     c = i["name"]
+#     if s not in CITIES:
+#         CITIES[s] = [c]
+#     else:
+#         CITIES[s].append(c)
