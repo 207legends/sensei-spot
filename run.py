@@ -2,7 +2,6 @@ from flask import Flask
 import json
 import os
 
-app = Flask(__name__)
 PATH_API = "/api/v1/"
 
 
@@ -12,7 +11,8 @@ responseTemplate = {
     "app-top-announcement": "Need a solution -> Think of a Sensie",
 }
 
-path = '/home/sensiespot/mysite/sensei-spot/'
+#path = '/home/sensiespot/mysite/sensei-spot/'
+path = os.getcwd() + '/'
 
 with open(path + 'data/places/countries.json', encoding="utf8") as f:
     dataCountries = json.load(f)

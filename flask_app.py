@@ -1,5 +1,7 @@
 from dependencies import *
 
+app = Flask(__name__)
+
 
 @app.route("/trending-dishes-all")
 def trending_skills_all():
@@ -27,6 +29,5 @@ def page_not_found(e):
 if __name__ == "__main__":
     app.register_blueprint(blueprint_user, url_prefix="/user")
     app.register_blueprint(blueprint_utilities, url_prefix="")
-    print(PATH_API + "places")
     app.register_blueprint(api_places, url_prefix=PATH_API+"places")
     app.run(debug=True)
