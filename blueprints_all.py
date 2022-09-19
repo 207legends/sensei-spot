@@ -1,0 +1,4 @@
+from blueprints.blueprint_user.blueprint_user import blueprint_user
+from blueprints.blueprint_utilities.blueprint_utilities import blueprint_utilities
+from blueprints.blueprint_api.api_places.api_places import api_places
+from blueprints.blueprint_sensei_all.blueprint_sensei_all import blueprint_sensei_all

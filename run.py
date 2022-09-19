@@ -9,7 +9,7 @@ PATH_API = "/api/v1/"
 responseTemplate = {
     "app-theme": "light",
     "app-name": "Sensei Spot",
-    "app-top-announcement": "Need a solution -> Think of a Sensie",
+    "app-top-announcement": "Need a solution -> Think of a Sensei",
 }
 
 path = ''

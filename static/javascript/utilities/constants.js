@@ -4,8 +4,8 @@ const CONSTANTS = {
     },
     APP_NAME: {
         ABBR: "SS",
-        FULL_NAME: "Sensie Spot"
+        FULL_NAME: "Sensei Spot"
     },
-    LATEST_ANNOUNCEMENT: "Need a solution -> Think of a Sensie",
-    "API_PATH" : "/api/v1"
+    LATEST_ANNOUNCEMENT: "Need a solution -> Think of a Sensei",
+    "API_PATH": "/api/v1"
 }
