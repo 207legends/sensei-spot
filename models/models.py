@@ -47,10 +47,10 @@ class ModelSkill:
 
 # For Subject
 class ModelSubject:
-    def __init__(self, id, name, skills):
+    def __init__(self,id, name, subject):
         self.id = id
         self.name = name
-        self.skills = skills
+        self.subject = subject
 
 
 class ModelRate:
