@@ -18,10 +18,33 @@ All Sensei
         </div>
     </div>
     <div class="row">
-        <div class="col-8">
+        <div class="col-sm-9">
             {% for i in range(10) %}
             {{ sensei_card_container() }}
             {% endfor %}
+        </div>
+        <div class="col-sm">
+            <div class="row">
+                <div class="col">
+                    <div class="custom-card" style="max-height: 50vh;overflow-y: auto;">
+                        <div class="custom-card-body">
+                            <h5><b>Locations</b></h5>
+                            <div class="row">
+                                <div class="col">
+                                    <div>
+                                        <a href="#">Online</a>
+                                    </div>
+                                    {% for country in res["countries"] %}
+                                    <div>
+                                        <a href="#">{{ country }}</a>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
