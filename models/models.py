@@ -1,6 +1,7 @@
 # For USERS
 class ModelUser:
-    def __init__(self, name, username, email, date_of_birth, pincode, country, state, city, address, landmark, userpic, contact):
+    def __init__(self, id, name, username, email, date_of_birth, pincode, country, state, city, address, landmark, userpic, contact, gems):
+        self.id = id
         self.name = name
         self.username = username
         self.email = email
@@ -13,20 +14,19 @@ class ModelUser:
         self.landmark = landmark
         self.userpic = userpic
         self.contact = contact
+        self.gems = gems
 
 # For Students
-
-
 class ModelStudent(ModelUser):
-    def __init__(self, name, username, email, date_of_birth, pincode, country, state, city, address, landmark, userpic, contact):
-        super().__init__(name, username, email, date_of_birth, pincode,
+    def __init__(self, id, name, username, email, date_of_birth, pincode, country, state, city, address, landmark, userpic, contact):
+        super().__init__(id, name, username, email, date_of_birth, pincode,
                          country, state, city, address, landmark, userpic, contact)
 
 
 # For Teachers
 class ModelTeacher(ModelUser):
-    def __init__(self, name, username, email, date_of_birth, pincode, country, state, city, address, landmark, userpic, contact, skills, bio, rate, experience, total_bookings, helps, travel):
-        super().__init__(name, username, email, date_of_birth, pincode,
+    def __init__(self, id, name, username, email, date_of_birth, pincode, country, state, city, address, landmark, userpic, contact, skills, bio, rate, experience, total_bookings, helps, travel):
+        super().__init__(id, name, username, email, date_of_birth, pincode,
                          country, state, city, address, landmark, userpic, contact)
         self.skills = skills
         self.bio = bio
@@ -39,15 +39,16 @@ class ModelTeacher(ModelUser):
 
 # For SKILL
 class ModelSkill:
-    def __init__(self, name, subject):
+    def __init__(self, id, name, topic, rating):
+        self.id = id
         self.name = name
-        self.subject = subject
+        self.topic = topic
+        self.rating = rating
 
 # For Subject
-
-
 class ModelSubject:
-    def __init__(self, name, skills):
+    def __init__(self, id, name, skills):
+        self.id = id
         self.name = name
         self.skills = skills
 
@@ -57,6 +58,15 @@ class ModelRate:
         self.value = value
         #UNIT = [DAY,WEEK,MONTH]
         self.unit = unit
+
+
+class ModelNotification:
+    def __init__(self, id, date, time, type, message):
+        self.id = id
+        self.date = date
+        self.time = time
+        self.type = type
+        self.message = message
 
 # For Assignments
 

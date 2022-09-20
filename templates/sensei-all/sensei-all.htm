@@ -1,9 +1,28 @@
+{% from "utilities/sensei-card-container/sensei-card-container.htm" import sensei_card_container with context %}
+
 {% extends 'layout/layout.htm' %}
 
 {% block title %}
 All Sensei
 {% endblock %}
 
-{% block content %}
+{% block stylesheet %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/utilities/search-container.css') }}">
+{% endblock %}
 
+{% block content %}
+<div class="container">
+    <div class="row mt-4">
+        <div class="col">
+            {% include 'utilities/search-container/search-container.htm' %}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-8">
+            {% for i in range(10) %}
+            {{ sensei_card_container() }}
+            {% endfor %}
+        </div>
+    </div>
+</div>
 {% endblock %}

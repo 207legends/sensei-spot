@@ -1,0 +1,55 @@
+{% macro sensei_card_container() %}
+<div class="row">
+    <div class="col">
+        <div class="custom-card">
+            <div class="custom-card-body">
+                <table>
+                    <tr>
+                        <td rowspan="2">
+                            <img src="{{ url_for('static', filename='images/sample-profile-image.webp') }}"
+                                style="width: 80px;margin-right: 24px;">
+                        </td>
+                        <td style="color: var(--color-accent);">
+                            <h5>
+                                <b>Navdeep Sharma</b>
+                            </h5>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <ul class="custom-chips">
+                                <li>Operating System</li>
+                                <li>DSA</li>
+                                <li>DBMS</li>
+                            </ul>
+                        </td>
+                    </tr>
+                </table>
+                <div class="row mt-4">
+                    <div class="col">
+                        <h4 class="ml-2"><b>About</b></h4>
+                        <ul>
+                            <li>ensures students learn the language with an intensive learning strategies</li>
+                            <li>ensures knowledge transfer are properly executed</li>
+                            <li>able to maintain high standards of teaching</li>
+                            <li>constant interaction between teacher and students.</li>
+                        </ul>
+                    </div>
+                </div>
+                <hr>
+                <div class="row" style="font-weight: 600;">
+                    <div class="col">
+                        <div>
+                            <span class="ml-2"><i class="bi bi-geo-alt-fill"></i> India</span>
+                            <span class="ml-2"><i class="bi bi-laptop"></i> 2 YOE</span>
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <span class="ml-2"><i class="bi bi-cash-coin"></i> Rs. 500/month</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endmacro %}

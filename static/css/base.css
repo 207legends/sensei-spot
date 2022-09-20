@@ -285,3 +285,21 @@ a:link {
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
 }
+
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+.custom-chips {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.custom-chips>li {
+    display: inline-block;
+    background-color: var(--color-accent);
+    color: white;
+    font-weight: 600;
+    border-radius: var(--border-radius);
+    padding: var(--padding-small) var(--padding-large);
+    cursor: pointer;    
+}
