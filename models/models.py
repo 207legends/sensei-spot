@@ -39,17 +39,16 @@ class ModelTeacher(ModelUser):
 
 # For SKILL
 class ModelSkill:
-    def __init__(self, name, subject):
+    def __init__(self, name, skills):
         self.name = name
-        self.subject = subject
-
+        self.skills = skills
 # For Subject
 
 
 class ModelSubject:
-    def __init__(self, name, skills):
+    def __init__(self, name, subject):
         self.name = name
-        self.skills = skills
+        self.subject = subject
 
 
 class ModelRate:
