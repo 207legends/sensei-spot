@@ -6,7 +6,7 @@
 All Sensei
 {% endblock %}
 
-{% block stylesheet %}
+{% block stylesheets %}
 <link rel="stylesheet" href="{{ url_for('static', filename='css/utilities/search-container.css') }}">
 {% endblock %}
 
@@ -24,13 +24,17 @@ All Sensei
             {% endfor %}
         </div>
         <div class="col-sm">
-            <div class="row">
+            <div class="row" style="position: sticky;top:80px;">
                 <div class="col">
                     <div class="custom-card" style="max-height: 50vh;overflow-y: auto;">
                         <div class="custom-card-body">
                             <h5><b>Locations</b></h5>
+                            <div class="form-group">
+                                <input type="text" placeholder="India,etc" class="form-control" id="input-text-country"
+                                    oninput="filterCountriesInput()">
+                            </div>
                             <div class="row">
-                                <div class="col">
+                                <div class="col" id="countries-container">
                                     <div>
                                         <a href="#">Online</a>
                                     </div>
@@ -48,4 +52,41 @@ All Sensei
         </div>
     </div>
 </div>
+{% endblock %}
+
+{% block body_scripts %}
+<script>
+    let countries = {{ res["countries"] | tojson }};
+
+    countries.push("Online");
+    let container = document.getElementById("countries-container");
+    let input_text_country = document.getElementById("input-text-country");
+
+    function filterCountriesInput() {
+        let input_country = input_text_country.value.toUpperCase();
+
+        if (input_country === "") {
+            let res = ``;
+
+            countries.forEach(country => {
+                res = res + `<div><a href="#">${country}</a><div>`;
+            });
+
+            container.innerHTML = res;
+            return;
+        }
+
+        let filteredCountries = countries.filter((country) => {
+            return country.toUpperCase().includes(input_country);
+        });
+
+        let res = ``;
+
+        filteredCountries.forEach(country => {
+            res = res + `<div><a href="#">${country}</a><div>`;
+        });
+
+        container.innerHTML = res;
+    }
+</script>
 {% endblock %}
