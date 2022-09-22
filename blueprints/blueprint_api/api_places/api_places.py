@@ -1,7 +1,8 @@
-from flask import Blueprint, request,jsonify
-from run import PATH_API,COUNTRIES,STATES,CITIES
+from flask import Blueprint, request, jsonify
+from run import PATH_API, COUNTRIES, STATES, CITIES
 
-api_places = Blueprint("api_places",__name__,static_folder='static', template_folder='templates')
+api_places = Blueprint("api_places", __name__)
+
 
 @api_places.route("/countries", methods=['GET'])
 def getCountries():

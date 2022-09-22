@@ -1,7 +1,7 @@
 from dependencies import *
 
 blueprint_utilities = Blueprint(
-    "blueprint_utilities", __name__, static_folder='static', template_folder='templates')
+    "blueprint_utilities", __name__)
 
 
 @blueprint_utilities.route("/")

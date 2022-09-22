@@ -1,8 +1,7 @@
 from flask import Blueprint, request, render_template, redirect, url_for
 from run import responseTemplate, STATES, CITIES, COUNTRIES
 
-blueprint_user = Blueprint('blueprint_user', __name__,
-                           static_folder='static', template_folder='templates')
+blueprint_user = Blueprint('blueprint_user', __name__)
 
 
 @blueprint_user.route("/login")
