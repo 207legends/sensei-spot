@@ -1,5 +1,4 @@
-from flask import Blueprint, request, render_template, redirect, url_for
-from run import responseTemplate, STATES, CITIES, COUNTRIES
+from dependencies import *
 
 blueprint_user = Blueprint('blueprint_user', __name__)
 

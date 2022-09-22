@@ -1,5 +1,4 @@
-from flask import Blueprint, request, jsonify
-from run import PATH_API, COUNTRIES, STATES, CITIES
+from dependencies import *
 
 api_places = Blueprint("api_places", __name__)
 
