@@ -12,8 +12,8 @@ responseTemplate = {
     "app-top-announcement": "Need a solution -> Think of a Sensei",
 }
 
-path = ''
-#path = os.getcwd() + '/'
+#path = ''
+path = os.getcwd() + '/'
 
 with open(path + 'data/places/countries.json', encoding="utf8") as f:
     dataCountries = json.load(f)
