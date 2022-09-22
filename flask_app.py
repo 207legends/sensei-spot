@@ -31,4 +31,4 @@ if __name__ == '__main__':
     app.register_blueprint(api_places, url_prefix=PATH_API+"places")
     app.register_blueprint(blueprint_sensei_all)
 
-    app.run(debug=True)
+    app.run(debug=True,host='0.0.0.0')
