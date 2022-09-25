@@ -10,4 +10,14 @@ Sensei - {{ res["user"]["username"] }}
 
 {% block content %}
 
+<div class="container">
+    <h1>{{res["user"].name}}</h1>
+    <hr>
+    <ul>
+        {% for about in res["user"].bio %}
+        <li>{{ about }}</li>
+        {% endfor %}
+    </ul>
+</div>
+
 {% endblock %}

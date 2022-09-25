@@ -17,17 +17,19 @@ class ModelUser:
         self.gems = gems
 
 # For Students
+
+
 class ModelStudent(ModelUser):
-    def __init__(self, id, name, username, email, date_of_birth, pincode, country, state, city, address, landmark, userpic, contact):
+    def __init__(self, id, name, username, email, date_of_birth, pincode, country, state, city, address, landmark, userpic, contact, gems):
         super().__init__(id, name, username, email, date_of_birth, pincode,
-                         country, state, city, address, landmark, userpic, contact)
+                         country, state, city, address, landmark, userpic, contact, gems)
 
 
 # For Teachers
-class ModelTeacher(ModelUser):
-    def __init__(self, id, name, username, email, date_of_birth, pincode, country, state, city, address, landmark, userpic, contact, skills, bio, rate, experience, total_bookings, helps, travel):
+class ModelSensei(ModelUser):
+    def __init__(self, id, name, username, email, date_of_birth, pincode, country, state, city, address, landmark, userpic, contact, gems, skills, bio, rate, experience, total_bookings, helps, travel):
         super().__init__(id, name, username, email, date_of_birth, pincode,
-                         country, state, city, address, landmark, userpic, contact)
+                         country, state, city, address, landmark, userpic, contact, gems)
         self.skills = skills
         self.bio = bio
         self.rate = rate
@@ -46,8 +48,10 @@ class ModelSkill:
         self.rating = rating
 
 # For Subject
+
+
 class ModelSubject:
-    def __init__(self,id, name, subject):
+    def __init__(self, id, name, subject):
         self.id = id
         self.name = name
         self.subject = subject
