@@ -2,7 +2,7 @@
 {% from "utilities/heading-with-show/heading-with-show.htm" import heading_with_show with context %}
 
 <div class="trending-skills-wrapper">
-    {{ heading_with_show("Trending Skills",url_for('trending_skills_all')) }}
+    {{ heading_with_show("Trending Skills","#") }}
     <div class="row">
         <div class="col div-horizontal-scrolling">
             {% for i in range(10) %}
