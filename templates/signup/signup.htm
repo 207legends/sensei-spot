@@ -5,146 +5,266 @@ Sign Up
 
 {% block top_navigation %} {% endblock %}
 
+{% block stylesheets %}
+<style>
+    .feedback {
+        color: var(--color-danger);
+        word-wrap: break-word;
+    }
+</style>
+{% endblock %}
+
 {% block content %}
 
 <div
     style="width: 100%;height: 50vh;background-color: var(--color-accent);position: fixed;z-index: -1;bottom: 0;left: 0;box-shadow: 0 -4px 8px var(--color-shadow);">
-
 </div>
 
 <div class="container-fluid">
     <div class="container">
         <div class="row  mt-4 mb-4 ">
-            <div class="col-auto" style="text-align: center;margin-left: auto;margin-right: auto;">
-                <form class="needs-validation" novalidate>
-                    <div class="custom-card">
-                        <div class="custom-card-body" style="text-align: left;margin: 12px;">
-                            <div class="alert alert-danger alert-dismissible fade show" style="text-align: left;">
-                                <button type="button" class="close" data-dismiss="alert">&times;</button>
-                                {{res["errorMsg"]}}
+            <div class="col-6" style="text-align: center;margin-left: auto;margin-right: auto;">
+                <div class="custom-card">
+                    <div class="custom-card-body" style="text-align: left;margin: 12px;">
+                        <div class="alert alert-danger alert-dismissible fade show"
+                            style="text-align: left;display: none;" id="error-dialog">
+                            <button type="button" class="close" data-dismiss="alert">&times;</button>
+                            <span id="error-message"></span>
+                        </div>
+
+                        <div class="row">
+                            <div class="col" style="text-align: center;">
+                                <h3><b>Hi USER !!</b></h3>
                             </div>
-                            <div class="row">
-                                <div class="col" style="text-align: center;">
-                                    <h3><b>Hi USER !!</b></h3>
-                                </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <h6>Enter the Username and Password to order your food</h6>
                             </div>
-                            <div class="row">
-                                <div class="col">
-                                    <!-- <h5>Hi Foodie !!</h5> -->
-                                    <h6>Enter the Username and Password to order your food</h6>
-                                </div>
-                            </div>
-                            <div class="row mt-4">
-                                <div class="col">
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" id="signup-user-username"
-                                            name="signup-user-username" placeholder="Username / Mobile / Email"
-                                            required>
-                                        <div class="invalid-feedback">
-                                            Email or Phonenumber is not in correct format
-                                        </div>
+                        </div>
+                        <div class="row mt-4">
+                            <div class="col">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="signup-user-email"
+                                        name="signup-user-email" placeholder="Email" required
+                                        oninput="checkEmailFormat()" autocomplete="off">
+                                    <div class="feedback" id="fb-email">
+
                                     </div>
-                                    <div class="form-group">
-                                        <input type="password" class="form-control" id="signup-user-password1"
-                                            placeholder="Password" name="signup-user-password1" required>
-                                        <div class="invalid-feedback">
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" class="form-control" id="signup-user-password1"
+                                        placeholder="Password" name="signup-user-password1" required
+                                        oninput="checkPasswordFormat()">
+                                    <div class="feedback" id="fb-password1">
+
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" class="form-control" id="signup-user-password2"
+                                        name="signup-user-password2" placeholder="Confirm Password" required
+                                        oninput="checkConfirmPassword()">
+                                    <div class="feedback" id="fb-password2">
+
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <select class="form-control" id="signup-user-role" name="signup-user-role" required>
+                                        <option value="student">Student</option>
+                                        <option value="teacher">Teacher</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck"
+                                            required>
+                                        <label class="form-check-label" for="invalidCheck">
+                                            Agree to terms and conditions
+                                        </label>
+                                        <div class="feedback">
 
                                         </div>
                                     </div>
-                                    <div class="form-group">
-                                        <input type="password" class="form-control" id="signup-user-password2"
-                                            name="signup-user-password2" placeholder="Confirm Password" required>
-                                        <div class="invalid-feedback">
-                                            Password doesnot match
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <select class="form-control" id="signup-user-role" name="signup-user-role"
-                                            required>
-                                            <option value="student">Student</option>
-                                            <option value="teacher">Teacher</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="" id="invalidCheck"
-                                                required>
-                                            <label class="form-check-label" for="invalidCheck">
-                                                Agree to terms and conditions
-                                            </label>
-                                            <div class="invalid-feedback">
-                                                You must agree before submitting.
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group mb-4">
-                                        <button class="btn custom-btn-primary" type="submit">
-                                            Sign Up <div class="spinner-border  spinner-border-sm"></div>
-                                        </button>
-                                    </div>
                                 </div>
-                            </div>
-                            <div class="row">
-                                <div class="col">
-                                    <span class="center-align"
-                                        style="background: var(--color-card);border-radius:50%;padding:12px;">OR</span>
-                                    <hr>
+                                <div data-toggle="modal" data-target="#modal-terms" class="mt-2 mb-2"
+                                    style="color: var(--color-accent);cursor: pointer;">
+                                    Terms and Conditions
                                 </div>
-                            </div>
-                            <div class="row mt-3">
-                                <div class="col">
-                                    <button class="btn custom-btn-outline">
-                                        <i class="bi bi-google" style="font-size:x-large;"></i>
+                                <div class="form-group mb-4">
+                                    <button class="btn custom-btn-primary" onclick="submitData()">
+                                        Sign Up <div class="spinner-border spinner-border-sm" id="progress-spinner"
+                                            style="display: none;"></div>
                                     </button>
-                                </div>
-                                <div class="col">
-                                    <button class="btn custom-btn-outline">
-                                        <i class="bi bi-apple" style="font-size:x-large;"></i>
-                                    </button>
-                                </div>
-                                <div class="col">
-                                    <button class="btn custom-btn-outline">
-                                        <i class="bi bi-facebook" style="font-size:x-large;"></i>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="row mt-4">
-                                <div class="col">
-                                    <span>Already have an account ? <b><a
-                                                href="{{ url_for('blueprint_user.login') }}">LOG
-                                                IN</a></b></span>
                                 </div>
                             </div>
                         </div>
+                        <div class="row">
+                            <div class="col">
+                                <span class="center-align"
+                                    style="background: var(--color-card);border-radius:50%;padding:12px;">OR</span>
+                                <hr>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col">
+                                <button class="btn custom-btn-outline">
+                                    <i class="bi bi-google" style="font-size:x-large;"></i>
+                                </button>
+                            </div>
+                            <div class="col">
+                                <button class="btn custom-btn-outline">
+                                    <i class="bi bi-apple" style="font-size:x-large;"></i>
+                                </button>
+                            </div>
+                            <div class="col">
+                                <button class="btn custom-btn-outline">
+                                    <i class="bi bi-facebook" style="font-size:x-large;"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="row mt-4">
+                            <div class="col">
+                                <span>Already have an account ? <b><a href="{{ url_for('blueprint_user.login') }}">LOG
+                                            IN</a></b></span>
+                            </div>
+                        </div>
                     </div>
-                </form>
+                </div>
             </div>
         </div>
     </div>
 </div>
+
+{% include 'utilities/modals/terms-and-conditions/modal.htm' %}
+
 {% endblock %}
 
 {% block body_scripts %}
 <script>
-    // Example starter JavaScript for disabling form submissions if there are invalid fields
-    (function () {
-        'use strict';
-        window.addEventListener('load', function () {
-            // Fetch all the forms we want to apply custom Bootstrap validation styles to
-            var forms = document.getElementsByClassName('needs-validation');
-            // Loop over them and prevent submission
-            var validation = Array.prototype.filter.call(forms, function (form) {
-                form.addEventListener('submit', function (event) {
-                    if (form.checkValidity() === false) {
-                        event.preventDefault();
-                        event.stopPropagation();
+    let input_email = document.getElementById("signup-user-email");
+    let input_pwd1 = document.getElementById("signup-user-password1");
+    let input_pwd2 = document.getElementById("signup-user-password2");
+    let select_role = document.getElementById("signup-user-role");
+    let progress_spinner = document.getElementById("progress-spinner");
+    const STATE = {
+        SHOW: true,
+        HIDE: false
+    }
+
+    function checkEmailFormat() {
+        let value = input_email.value;
+        let pattern = CONSTANTS.REGEX.EMAIL;
+
+        if (pattern.test(value) == false) {
+            document.getElementById("fb-email").innerHTML = `
+            <span>Email is not in correct format</span>
+            `;
+        }
+        else {
+            document.getElementById("fb-email").innerHTML = `            
+            `;
+        }
+
+    }
+
+    function checkPasswordFormat() {
+        let value = input_pwd1.value;
+        let pattern = CONSTANTS.REGEX.PASSWORD;
+
+        if (pattern.test(value) == false) {
+            document.getElementById("fb-password1").innerHTML = `
+            <span>Password must contain 1 capital alphabet, 1 small albhabet, 1 numeric digit and greater than 8 characters</span>
+            `;
+        }
+        else {
+            document.getElementById("fb-password1").innerHTML = `
+            
+            `;
+        }
+    }
+
+    function checkConfirmPassword() {
+        let value1 = input_pwd1.value;
+        let value2 = input_pwd2.value;
+
+        if (value1 != value2) {
+            document.getElementById("fb-password2").innerHTML = `
+            <span>Password is not same</span>
+            `;
+        }
+        else {
+            document.getElementById("fb-password2").innerHTML = `
+            
+            `;
+        }
+    }
+
+    function submitData() {
+        let isFormValid = checkForm();
+
+        if (!isFormValid) {
+            return;
+        }
+
+        setProgressState(STATE.SHOW);
+
+        let createDataToPush = function () {
+            let data = {
+                email: input_email.value,
+                password: input_pwd1.value,
+                role: select_role.value
+            }
+
+            pushData(data);
+        };
+
+        let pushData = function (data) {
+            $.ajax(
+                {
+                    url: "/user/signup",
+                    type: "POST",
+                    data: JSON.stringify(data),
+                    dataType: "json",
+                    contentType: "application/json; charset=utf-8",
+                    success: (response) => {
+                        console.log(response);
+                        setProgressState(STATE.HIDE);
+                        if (response.status == 200) {
+                            window.location = "/user/login";
+                        }
+                        else if (response.status == 401) {
+                            document.getElementById("error-message").innerHTML = response.message;
+                            document.getElementById("error-dialog").style.display = "block";
+                        }
+
+                    },
+                    error: (error) => {
+                        setProgressState(STATE.HIDE);
                     }
-                    form.classList.add('was-validated');
-                }, false);
-            });
-        }, false);
-    })();
+                }
+            )
+        }
+
+        createDataToPush();
+    }
+
+    function checkForm() {
+        let value_email = input_email.value;
+        let value_password1 = input_pwd1.value;
+        let value_password2 = input_pwd2.value;
+
+        return true;
+    }
+
+    function setProgressState(state) {
+        if (STATE.SHOW)
+            progress_spinner.style.display = 'inline-block';
+        else (STATE.HIDE)
+        progress_spinner.style.display = 'none';
+    }
 </script>
 {% endblock %}
+
+
 
 {% block footer %} {% endblock %}

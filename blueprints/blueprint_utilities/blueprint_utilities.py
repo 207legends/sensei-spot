@@ -5,6 +5,7 @@ blueprint_utilities = Blueprint(
 
 
 @blueprint_utilities.route("/")
+@login_required
 def home():
     responseTemplate["app-theme"] = request.cookies.get('app-theme')
     responseTemplate["stats"] = [['100+', 'Subjects'],

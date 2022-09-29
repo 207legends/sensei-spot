@@ -5,6 +5,7 @@ blueprint_sensei = Blueprint('blueprint_sensei', __name__)
 
 
 @blueprint_sensei.route('/sensei-all')
+@login_required
 def sensei_all():
     responseTemplate["app-theme"] = request.cookies.get('app-theme')
     responseTemplate["countries"] = COUNTRIES
@@ -12,6 +13,7 @@ def sensei_all():
 
 
 @blueprint_sensei.route('/sensei/<username>')
+@login_required
 def sensei_user(username):
     responseTemplate["app-theme"] = request.cookies.get('app-theme')
     responseTemplate["countries"] = COUNTRIES

@@ -1,8 +1,15 @@
-from flask import Flask
-import os
-import json
+from imports_all import *
 
 app = Flask(__name__)
+
+app.config['SECRET_KEY'] = 'navi17101999'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite'
+
+db = SQLAlchemy(app)
+
+login_manager = LoginManager()
+login_manager.login_view = 'blueprint_user.login'
+login_manager.init_app(app)
 
 PATH_API = "/api/v1/"
 
@@ -19,14 +26,14 @@ with open(path + 'data/places/countries.json', encoding="utf8") as f:
     dataCountries = json.load(f)
 
 COUNTRIES = []
+STATES = {}
+CITIES = {}
 
 for i in dataCountries:
     COUNTRIES.append(i["name"])
 
 with open(path + 'data/places/states.json', encoding="utf8") as f:
     dataStates = json.load(f)
-
-STATES = {}
 
 for i in dataStates:
     c = i["country_name"]
@@ -39,8 +46,6 @@ for i in dataStates:
 
 with open(path + 'data/places/cities.json', encoding="utf8") as f:
     dataCities = json.load(f)
-
-CITIES = {}
 
 for i in dataCities:
     s = i["state_name"]

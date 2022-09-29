@@ -1,3 +1,6 @@
+
+
+
 # For USERS
 class ModelUser:
     def __init__(self, id, name, username, email, date_of_birth, pincode, country, state, city, address, landmark, userpic, contact, gems):
@@ -58,10 +61,11 @@ class ModelSubject:
 
 
 class ModelRate:
-    def __init__(self, value, unit):
+    def __init__(self, value,currency, unit):
         self.value = value
         #UNIT = [DAY,WEEK,MONTH]
         self.unit = unit
+        self.currency = currency
 
 
 class ModelNotification:

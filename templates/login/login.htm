@@ -18,13 +18,15 @@ Login
             <div class="col-auto" style="text-align: center;margin-left: auto;margin-right: auto;">
                 <div class="custom-card">
                     <div class="custom-card-body" style="text-align: left;margin: 12px;">
-                        <div class="alert alert-danger alert-dismissible fade show" style="text-align: left;">
+                        <div class="alert alert-danger alert-dismissible fade show"
+                            style="text-align: left;display: none;" id="error-dialog">
                             <button type="button" class="close" data-dismiss="alert">&times;</button>
-                            {{res["errorMsg"]}}
+                            <span id="error-message"></span>
                         </div>
+
                         <div class="row">
                             <div class="col" style="text-align: center;">
-                                <h3><b>Hi Foodie !!</b></h3>
+                                <h3><b>Hi User !!</b></h3>
                             </div>
                         </div>
                         <div class="row">
@@ -36,8 +38,7 @@ Login
                         <div class="row mt-4">
                             <div class="col">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" id="usr"
-                                        placeholder="Username / Mobile / Email">
+                                    <input type="text" class="form-control" id="" placeholder="Email">
                                 </div>
                                 <div class="form-group">
                                     <input type="password" class="form-control" id="pwd" placeholder="Password">
@@ -86,5 +87,126 @@ Login
     </div>
 </div>
 {% endblock %}
+
+{% block body_scripts %}
+<script>
+    let input_email = document.getElementById("login-user-email");
+    let input_pwd1 = document.getElementById("login-user-password1");
+
+    let progress_spinner = document.getElementById("progress-spinner");
+
+    const STATE = {
+        SHOW: true,
+        HIDE: false
+    }
+
+    function checkEmailFormat() {
+        let value = input_email.value;
+        let pattern = CONSTANTS.REGEX.EMAIL;
+
+        if (pattern.test(value) == false) {
+            document.getElementById("fb-email").innerHTML = `
+            <span>Email is not in correct format</span>
+            `;
+        }
+        else {
+            document.getElementById("fb-email").innerHTML = `            
+            `;
+        }
+
+    }
+
+    function checkPasswordFormat() {
+        let value = input_pwd1.value;
+        let pattern = CONSTANTS.REGEX.PASSWORD;
+
+        if (pattern.test(value) == false) {
+            document.getElementById("fb-password1").innerHTML = `
+            <span>Password must contain 1 capital alphabet, 1 small albhabet, 1 numeric digit and greater than 8 characters</span>
+            `;
+        }
+        else {
+            document.getElementById("fb-password1").innerHTML = `
+            
+            `;
+        }
+    }
+
+    function submitData() {
+        let isFormValid = checkForm();
+
+        if (!isFormValid) {
+            return;
+        }
+
+        setProgressState(STATE.SHOW);
+
+        let createDataToPush = function () {
+            let data = {
+                email: input_email.value,
+                password: input_pwd1.value,
+            }
+
+            pushData(data);
+        };
+
+        let pushData = function (data) {
+            $.ajax(
+                {
+                    url: "/user/login",
+                    type: "POST",
+                    data: JSON.stringify(data),
+                    dataType: "json",
+                    contentType: "application/json; charset=utf-8",
+                    success: (response) => {
+                        console.log(response);
+                        setProgressState(STATE.HIDE);
+                        if (response.status == 200) {
+                            window.location = "/";
+                        }
+                        else if (response.status == 401) {
+                            document.getElementById("error-message").innerHTML = response.message;
+                            document.getElementById("error-dialog").style.display = "block";
+                        }
+                    },
+                    error: (error) => {
+                        setProgressState(STATE.HIDE);
+                    }
+                }
+            )
+        }
+
+        createDataToPush();
+    }
+
+    function checkForm() {
+        let value_email = input_email.value;
+        let value_password1 = input_pwd1.value;
+
+        if(value_email=="") 
+        {
+            input_email.focus();
+            return false;
+        }
+
+        if(value_password1=="")
+        {
+            input_pwd1.focus();
+            return false;
+        }
+
+        return true;
+    }
+
+    function setProgressState(state) {
+        if (STATE.SHOW)
+            progress_spinner.style.display = 'inline-block';
+        else (STATE.HIDE)
+        progress_spinner.style.display = 'none';
+    }
+
+</script>
+{% endblock %}
+
 
 {% block footer %} {% endblock %}
