@@ -33,9 +33,9 @@ def login_auth():
 
     result["status"] = "200"
     result["message"] = "Authorization Successfull"
-    
-    login_user(user,remember=True)
-    
+
+    login_user(user, remember=True)
+
     return jsonify(result)
 
 
@@ -95,6 +95,7 @@ def profile():
 @blueprint_user.route("/logout")
 @login_required
 def logout():
+    logout_user()
     return redirect(url_for('blueprint_user.login'))
 
 

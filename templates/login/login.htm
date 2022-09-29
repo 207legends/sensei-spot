@@ -38,14 +38,16 @@ Login
                         <div class="row mt-4">
                             <div class="col">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" id="" placeholder="Email">
+                                    <input type="text" class="form-control" id="login-user-email" placeholder="Email">
                                 </div>
                                 <div class="form-group">
-                                    <input type="password" class="form-control" id="pwd" placeholder="Password">
+                                    <input type="password" class="form-control" id="login-user-password1"
+                                        placeholder="Password">
                                 </div>
                                 <div class="form-group">
-                                    <button class="btn custom-btn-primary">
-                                        Login <div class="spinner-border  spinner-border-sm"></div>
+                                    <button class="btn custom-btn-primary" onclick="submitData()">
+                                        Login <div class="spinner-border spinner-border-sm" id="progress-spinner"
+                                            style="display: none;"></div>
                                     </button>
                                 </div>
                             </div>
@@ -100,38 +102,6 @@ Login
         HIDE: false
     }
 
-    function checkEmailFormat() {
-        let value = input_email.value;
-        let pattern = CONSTANTS.REGEX.EMAIL;
-
-        if (pattern.test(value) == false) {
-            document.getElementById("fb-email").innerHTML = `
-            <span>Email is not in correct format</span>
-            `;
-        }
-        else {
-            document.getElementById("fb-email").innerHTML = `            
-            `;
-        }
-
-    }
-
-    function checkPasswordFormat() {
-        let value = input_pwd1.value;
-        let pattern = CONSTANTS.REGEX.PASSWORD;
-
-        if (pattern.test(value) == false) {
-            document.getElementById("fb-password1").innerHTML = `
-            <span>Password must contain 1 capital alphabet, 1 small albhabet, 1 numeric digit and greater than 8 characters</span>
-            `;
-        }
-        else {
-            document.getElementById("fb-password1").innerHTML = `
-            
-            `;
-        }
-    }
-
     function submitData() {
         let isFormValid = checkForm();
 
@@ -183,14 +153,12 @@ Login
         let value_email = input_email.value;
         let value_password1 = input_pwd1.value;
 
-        if(value_email=="") 
-        {
+        if (value_email == "") {
             input_email.focus();
             return false;
         }
 
-        if(value_password1=="")
-        {
+        if (value_password1 == "") {
             input_pwd1.focus();
             return false;
         }
