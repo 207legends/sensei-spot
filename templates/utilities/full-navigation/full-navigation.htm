@@ -11,6 +11,7 @@
             <li>
                 <a class="nav-link" href="{{ url_for('blueprint_utilities.careers') }}">Careers</a>
             </li>
+            {% if res["user"].is_authenticated %}
             <li>
                 <a class="nav-link" href="{{ url_for('blueprint_user.profile') }}">Profile</a>
             </li>
@@ -23,6 +24,14 @@
             <li>
                 <a class="nav-link" href="{{ url_for('blueprint_user.logout') }}">Logout</a>
             </li>
+            {% else %}
+            <li>
+                <a class="nav-link" href="{{ url_for('blueprint_user.login') }}">Login</a>
+            </li>
+            <li>
+                <a class="nav-link" href="{{ url_for('blueprint_user.signup') }}">Signup</a>
+            </li>
+            {% endif %}
         </ul>
     </div>
 </div>
