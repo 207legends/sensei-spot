@@ -3,6 +3,10 @@
 Sign Up
 {% endblock %}
 
+{% block head_scripts %}
+<script src="https://accounts.google.com/gsi/client" async defer></script>
+{% endblock %}
+
 {% block top_navigation %} {% endblock %}
 
 {% block stylesheets %}
@@ -23,12 +27,11 @@ Sign Up
 <div class="container-fluid">
     <div class="container">
         <div class="row  mt-4 mb-4 ">
-            <div class="col-6" style="text-align: center;margin-left: auto;margin-right: auto;">
+            <div class="col-6-sm" style="text-align: center;margin-left: auto;margin-right: auto;">
                 <div class="custom-card">
                     <div class="custom-card-body" style="text-align: left;margin: 12px;">
                         <div class="alert alert-danger alert-dismissible fade show"
                             style="text-align: left;display: none;" id="error-dialog">
-                            <button type="button" class="close" data-dismiss="alert">&times;</button>
                             <span id="error-message"></span>
                         </div>
 
@@ -45,7 +48,7 @@ Sign Up
                         <div class="row mt-4">
                             <div class="col">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" id="signup-user-email"
+                                    <input type="email" class="form-control" id="signup-user-email"
                                         name="signup-user-email" placeholder="Email" required
                                         oninput="checkEmailFormat()" autocomplete="off">
                                     <div class="feedback" id="fb-email">
@@ -76,12 +79,12 @@ Sign Up
                                 </div>
                                 <div class="form-group">
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck"
+                                        <input class="form-check-input" type="checkbox" value="" id="signup-user-agree"
                                             required>
-                                        <label class="form-check-label" for="invalidCheck">
+                                        <label class="form-check-label" for="signup-user-agree">
                                             Agree to terms and conditions
                                         </label>
-                                        <div class="feedback">
+                                        <div class="feedback" id="fb-terms">
 
                                         </div>
                                     </div>
@@ -145,58 +148,67 @@ Sign Up
     let input_pwd1 = document.getElementById("signup-user-password1");
     let input_pwd2 = document.getElementById("signup-user-password2");
     let select_role = document.getElementById("signup-user-role");
+    let checkbox_agree = document.getElementById("signup-user-agree")
+
     let progress_spinner = document.getElementById("progress-spinner");
     const STATE = {
         SHOW: true,
         HIDE: false
     }
 
+    const FEEDBACKS = {
+        EMAIL: "fb-email",
+        PASSWORD1: "fb-password1",
+        PASSWORD2: "fb-password2",
+        TERMS: "fb-terms"
+    }
+
     function checkEmailFormat() {
         let value = input_email.value;
         let pattern = CONSTANTS.REGEX.EMAIL;
 
+        let message = "";
+
         if (pattern.test(value) == false) {
-            document.getElementById("fb-email").innerHTML = `
-            <span>Email is not in correct format</span>
-            `;
+            message = `<span>Email is not in correct format</span>`;
         }
-        else {
-            document.getElementById("fb-email").innerHTML = `            
-            `;
-        }
+
+        setFeedback(FEEDBACKS.EMAIL, message);
 
     }
 
     function checkPasswordFormat() {
         let value = input_pwd1.value;
         let pattern = CONSTANTS.REGEX.PASSWORD;
+        let message = "";
 
         if (pattern.test(value) == false) {
-            document.getElementById("fb-password1").innerHTML = `
-            <span>Password must contain 1 capital alphabet, 1 small albhabet, 1 numeric digit and greater than 8 characters</span>
+            message = `
+            Password must contain 
+            <ul>
+                <li>1 capital alphabet</li>
+                <li>1 small albhabet</li>
+                <li>1 numeric digit</li>
+                <li>8 or more characters</li>
+            </ul>
             `;
         }
-        else {
-            document.getElementById("fb-password1").innerHTML = `
-            
-            `;
-        }
+
+        setFeedback(FEEDBACKS.PASSWORD1, message);
     }
 
     function checkConfirmPassword() {
         let value1 = input_pwd1.value;
         let value2 = input_pwd2.value;
+        let message = ""
 
         if (value1 != value2) {
-            document.getElementById("fb-password2").innerHTML = `
+            message = `
             <span>Password is not same</span>
             `;
         }
-        else {
-            document.getElementById("fb-password2").innerHTML = `
-            
-            `;
-        }
+
+        setFeedback(FEEDBACKS.PASSWORD2, message);
     }
 
     function submitData() {
@@ -252,8 +264,62 @@ Sign Up
         let value_email = input_email.value;
         let value_password1 = input_pwd1.value;
         let value_password2 = input_pwd2.value;
+        let message = "";
+
+        if (value_email == "") {
+            message = "Field is empty";
+            setFeedback(FEEDBACKS.EMAIL, message);
+            return false;
+        }
+        if (CONSTANTS.REGEX.EMAIL.test(value_email) == false) {
+            message = `<span>Email is not in correct format</span>`;
+            setFeedback(FEEDBACKS.EMAIL, message);
+            return false;
+        }
+
+        if (value_password1 == "") {
+            message = "Field is empty";
+            setFeedback(FEEDBACKS.PASSWORD1, message);
+            return false;
+        }
+        if (CONSTANTS.REGEX.PASSWORD.test(value_password1) == false) {
+            message = `
+            Password must contain 
+            <ul>
+                <li>1 capital alphabet</li>
+                <li>1 small albhabet</li>
+                <li>1 numeric digit</li>
+                <li>8 or more characters</li>
+            </ul>
+            `;
+            setFeedback(FEEDBACKS.PASSWORD1, message);
+            return false;
+        }
+
+        if (value_password2 == "") {
+            message = "Field is empty";
+            setFeedback(FEEDBACKS.PASSWORD2, message);
+            return false;
+        }
+        if (value_password1 != value_password2) {
+            message = `
+            <span>Password is not same</span>
+            `;
+            setFeedback(FEEDBACKS.PASSWORD2, message);
+            return false;
+        }
+
+        if (checkbox_agree.checked == false) {
+            message = `Terms and conditions not agreed`;
+            setFeedback(FEEDBACKS.TERMS, message);
+            return false;
+        }
 
         return true;
+    }
+
+    function setFeedback(id, message) {
+        document.getElementById(id).innerHTML = message;
     }
 
     function setProgressState(state) {

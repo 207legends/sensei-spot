@@ -43,6 +43,7 @@
             </ul>
 
             <ul class="custom-navbar-content" style="position: absolute;right:0;top:50%;transform: translateY(-50%);">
+                {% if res["user"].is_authenticated %}
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownNotification" role="button"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -53,7 +54,7 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownProfile" role="button"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Navdeep Sharma
+                        {{ res["user"].email }}
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownProfile">
                         <div class="row" style="margin: 0 3px;">
@@ -66,7 +67,7 @@
                                                     style="width: 48px;margin-right: 12px;">
                                             </td>
                                             <td>
-                                                Navdeep Sharma
+                                                {{ res["user"].role }}
                                             </td>
                                         </tr>
                                     </tbody>
@@ -84,6 +85,15 @@
                                 class="bi bi-box-arrow-right"></i> Logout</a>
                     </div>
                 </li>
+                {% else %}
+                <li class="nav-item active">
+                    <a class="nav-link" href="{{ url_for('blueprint_user.login') }}">
+                        Login</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="{{ url_for('blueprint_user.signup') }}">Sign Up</a>
+                </li>
+                {% endif %}
             </ul>
         </nav>
     </div>

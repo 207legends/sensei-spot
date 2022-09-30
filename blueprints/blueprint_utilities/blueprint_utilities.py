@@ -5,11 +5,11 @@ blueprint_utilities = Blueprint(
 
 
 @blueprint_utilities.route("/")
-@login_required
 def home():
     responseTemplate["app-theme"] = request.cookies.get('app-theme')
     responseTemplate["stats"] = [['100+', 'Subjects'],
                                  ['100+', 'Skills'], ['1K+', 'Teachers']]
+    responseTemplate["user"] = current_user
     return render_template("home/home.htm", res=responseTemplate)
 
 
