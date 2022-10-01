@@ -1,7 +1,7 @@
 {% extends 'layout/layout.htm' %}
 
 {% block title %}
-Sensei - {{ res["user"].name }}
+Sensei - {{ res["data"]["sensei"].name }}
 {% endblock %}
 
 {% block stylesheet %}
@@ -27,7 +27,7 @@ Sensei - {{ res["user"].name }}
                                         <a
                                             href="{{ url_for('blueprint_sensei.sensei_user',username='navdeep-sharma') }}">
                                             <h5>
-                                                <b>{{ res["user"].name }}</b>
+                                                <b>{{ res["data"]["sensei"].name }}</b>
                                             </h5>
                                         </a>
                                     </td>
@@ -35,7 +35,7 @@ Sensei - {{ res["user"].name }}
                                 <tr>
                                     <td>
                                         <ul class="custom-chips">
-                                            {% for skill in res["user"].skills %}
+                                            {% for skill in res["data"]["sensei"].skills %}
                                             <li>{{ skill.name }}</li>
                                             {% endfor %}
                                         </ul>
@@ -46,7 +46,7 @@ Sensei - {{ res["user"].name }}
                                 <div class="col">
                                     <h4 class="ml-2"><b>About</b></h4>
                                     <ul>
-                                        {% for about in res["user"].bio %}
+                                        {% for about in res["data"]["sensei"].bio %}
                                         <li>{{ about }}</li>
                                         {% endfor %}
                                     </ul>
@@ -56,15 +56,15 @@ Sensei - {{ res["user"].name }}
                             <div class="row" style="font-weight: 600;">
                                 <div class="col">
                                     <div>
-                                        <span class="ml-2"><i class="bi bi-geo-alt-fill"></i> {{ res["user"].country
+                                        <span class="ml-2"><i class="bi bi-geo-alt-fill"></i> {{ res["data"]["sensei"].country
                                             }}</span>
-                                        <span class="ml-2"><i class="bi bi-laptop"></i> {{ res["user"].experience }}
+                                        <span class="ml-2"><i class="bi bi-laptop"></i> {{ res["data"]["sensei"].experience }}
                                             YOE</span>
                                     </div>
                                 </div>
                                 <div class="col-auto">
-                                    <span class="ml-2"><i class="bi bi-cash-coin"></i> Rs. {{ res["user"].rate.value
-                                        }}/{{ res["user"].rate.unit }}</span>
+                                    <span class="ml-2"><i class="bi bi-cash-coin"></i> Rs. {{ res["data"]["sensei"].rate.value
+                                        }}/{{ res["data"]["sensei"].rate.unit }}</span>
                                 </div>
                             </div>
                         </div>

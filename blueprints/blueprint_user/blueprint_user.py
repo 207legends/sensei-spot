@@ -7,7 +7,11 @@ blueprint_user = Blueprint('blueprint_user', __name__)
 @blueprint_user.route("/login")
 def login():
     responseTemplate["app-theme"] = request.cookies.get('app-theme')
-    responseTemplate["errorMsg"] = "Username or Password is wrong"
+    data = {
+
+    }
+    data["user"] = current_user
+    responseTemplate["data"] = data
     return render_template("login/login.htm", res=responseTemplate)
 
 
@@ -42,6 +46,11 @@ def login_auth():
 @blueprint_user.route("/signup")
 def signup():
     responseTemplate["app-theme"] = request.cookies.get('app-theme')
+    data = {
+
+    }
+    data["user"] = current_user
+    responseTemplate["data"] = data
     return render_template("signup/signup.htm", res=responseTemplate)
 
 
@@ -80,8 +89,13 @@ def signup_auth():
 @login_required
 def settings():
     responseTemplate["app-theme"] = request.cookies.get('app-theme')
-    responseTemplate["states"] = STATES
-    responseTemplate["countries"] = COUNTRIES
+    data = {
+
+    }
+    data["states"] = STATES
+    data["countries"] = COUNTRIES
+    data["user"] = current_user
+    responseTemplate["data"] = data
     return render_template("settings/settings.htm", res=responseTemplate)
 
 
@@ -89,6 +103,11 @@ def settings():
 @login_required
 def profile():
     responseTemplate["app-theme"] = request.cookies.get('app-theme')
+    data = {
+
+    }
+    data["user"] = current_user
+    responseTemplate["data"] = data
     return render_template("profile/profile.htm", res=responseTemplate)
 
 
@@ -103,4 +122,9 @@ def logout():
 @login_required
 def notifications():
     responseTemplate["app-theme"] = request.cookies.get('app-theme')
+    data = {
+
+    }
+    data["user"] = current_user
+    responseTemplate["data"] = data
     return render_template("notifications/notifications.htm", res=responseTemplate)

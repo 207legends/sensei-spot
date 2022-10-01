@@ -1,5 +1,8 @@
 from imports_all import *
 
+path = '/home/sensiespot/mysite/sensei-spot/'
+#path = os.getcwd() + '/'
+
 app = Flask(__name__)
 
 app.config['SECRET_KEY'] = 'navi17101999'
@@ -18,9 +21,6 @@ responseTemplate = {
     "app-name": "Sensei Spot",
     "app-top-announcement": "Need a solution -> Think of a Sensei",
 }
-
-path = '/home/sensiespot/mysite/sensei-spot/'
-#path = os.getcwd() + '/'
 
 with open(path + 'data/places/countries.json', encoding="utf8") as f:
     dataCountries = json.load(f)

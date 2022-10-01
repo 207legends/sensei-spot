@@ -38,7 +38,7 @@ All Sensei
                                     <div>
                                         <a href="#">Online</a>
                                     </div>
-                                    {% for country in res["countries"] %}
+                                    {% for country in res["data"]["countries"] %}
                                     <div>
                                         <a href="#">{{ country }}</a>
                                     </div>
@@ -56,7 +56,7 @@ All Sensei
 
 {% block body_scripts %}
 <script>
-    let countries = {{ res["countries"] | tojson }};
+    let countries = {{ res["data"]["countries"] | tojson }};
 
     countries.push("Online");
     let container = document.getElementById("countries-container");

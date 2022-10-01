@@ -11,7 +11,7 @@
             <li>
                 <a class="nav-link" href="{{ url_for('blueprint_utilities.careers') }}">Careers</a>
             </li>
-            {% if res["user"].is_authenticated %}
+            {% if res["data"]["user"].is_authenticated %}
             <li>
                 <a class="nav-link" href="{{ url_for('blueprint_user.profile') }}">Profile</a>
             </li>
