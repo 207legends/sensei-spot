@@ -57,24 +57,23 @@ a:link {
     top: 0;
     z-index: var(--z-index-navbar);
     font-weight: 700;
-    color: var(--color-primary);
-    background-color: var(--color-accent);
-    box-shadow: 0 6px 6px 0 var(--color-shadow);
+    background: var(--color-primary);
+    box-shadow: 0 2px 6px 0 var(--color-shadow);
     padding: var(--padding-small);
 }
 
 .custom-navbar-brand {
     transform: translateY(2px);
     text-decoration: none;
-    color: var(--color-primary);
+    color: var(--color-accent);
 }
 
 .custom-navbar-brand:hover {
-    color: var(--color-primary);
+    color: var(--color-accent);
 }
 
 .custom-nav-link {
-    color: var(--color-primary);
+    color: var(--color-accent);
 }
 
 .custom-nav-link:hover {
@@ -84,17 +83,17 @@ a:link {
 .custom-top-navigation>ul>li {
     list-style: none;
     display: inline-block;
-    color: var(--color-primary);
+    color: var(--color-accent);
 }
 
 .custom-top-navigation>ul>li>a {
-    color: var(--color-primary);
+    color: var(--color-accent);
 }
 
 .custom-navbar-menu-icon {
     position: relative;
     display: none;
-    color: var(--color-primary);
+    color: var(--color-accent);
     font-size: 28px;
 }
 

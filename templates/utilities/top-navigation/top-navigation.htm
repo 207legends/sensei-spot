@@ -24,7 +24,7 @@
         <nav class="custom-top-navigation" style="box-shadow: none;">
             <a class="custom-navbar-brand" href="{{ url_for('blueprint_utilities.home') }}">
                 <img src="{{ url_for('static', filename='images/app-icon.png') }}" style="height: 38px;"> <span
-                    id="top-navigation-app-name" style="color: var(--color-primary);">{{ res["app-name"] }}</span>
+                    id="top-navigation-app-name" style="color: var(--color-accent);">{{ res["app-name"] }}</span>
             </a>
 
             <span class="custom-navbar-menu-icon"><i class="bi bi-list" id="navigation-hamburger-icon"
@@ -87,11 +87,12 @@
                 </li>
                 {% else %}
                 <li class="nav-item active">
-                    <a class="nav-link" href="{{ url_for('blueprint_user.login') }}">
+                    <a class="nav-link custom-btn-outline" href="{{ url_for('blueprint_user.login') }}">
                         Login</a>
                 </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="{{ url_for('blueprint_user.signup') }}">Sign Up</a>
+                <li class="nav-item active ml-2">
+                    <a class="nav-link custom-btn-primary" style="color: var(--color-primary);"
+                        href="{{ url_for('blueprint_user.signup') }}">Sign Up</a>
                 </li>
                 {% endif %}
             </ul>

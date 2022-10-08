@@ -17,13 +17,11 @@ Home
 {% endblock %}
 
 {% block content %}
-<div class="container-fluid home-jumbotron-wrapper">
-    <div class="jumbotron-gradient">
-        <div class="container">
-            <div class="row">
-                <div class="col">
-                    {% include 'utilities/search-container/search-container.htm' %}
-                </div>
+<div class="container-fluid mt-4">
+    <div class="container" style="text-align: center;">
+        <div class="row">
+            <div class="col">
+                <img class="img-fluid" src="{{ url_for('static', filename='images/il8/il81.png') }}">
             </div>
         </div>
     </div>
@@ -37,7 +35,7 @@ Home
         <div class="row" style="background-color: var(--color-shadow);padding: 24px;">
             <div class="col">
                 <div class="row">
-                    {% for stat in res["stats"] %}
+                    {% for stat in res["data"]["stats"] %}
                     <div class="col-sm" style="text-align: center;">
                         <h4>{{ stat[0] }}</h4>
                         <h3><b>{{ stat[1] }}</b></h3>

@@ -11,8 +11,8 @@
 }
 
 .skill-wrapper .skill-image {
-    width: 100%;
-    border-radius: 12px 12px 12px 12px;
+    width: inherit;
+    border-radius: 8px;
 }
 
 .skill-wrapper .skill-heading {

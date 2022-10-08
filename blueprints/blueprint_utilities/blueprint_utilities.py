@@ -14,6 +14,7 @@ def home():
     data["stats"] = [['100+', 'Subjects'],
                      ['100+', 'Skills'], ['1K+', 'Teachers']]
     responseTemplate["data"] = data
+    print(responseTemplate)
     return render_template("home/home.htm", res=responseTemplate)
 
 

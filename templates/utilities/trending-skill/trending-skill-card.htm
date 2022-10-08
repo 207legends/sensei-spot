@@ -1,20 +1,15 @@
 {% macro trending_skill_card(skillImageSrc="",skillName="",skillCategory="",skillRating="") %}
 
 <div class="custom-card skill-wrapper" style="padding-bottom: var(--padding-large);">
-    <!--Header-->
-    <div class="row custom-card-header">
-        <div class="col">
-            <div style="position: relative;">
-                <span class="skill-fav"><i class="bi bi-heart-fill"></i></span>
-                <img class="skill-image" src="{{ url_for('static', filename='images/sample-skill.jpeg') }}">
-                <div class="skill-image-overlay"></div>
-            </div>
-        </div>
-    </div>
     <!--Body-->
-    <div class="row custom-card-body">
+    <div class="row custom-card-body" style="padding: 16px;">
         <div class="col">
             <div class="row">
+                <div class="col">
+                    <img class="skill-image" src="{{ url_for('static', filename='images/sample-skill.jpeg') }}">
+                </div>
+            </div>
+            <div class="row mt-2">
                 <div class="col"><span class="skill-heading"> {{ skillName }}</span></div>
             </div>
             <div class="row">
